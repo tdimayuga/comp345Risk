@@ -18,6 +18,7 @@ class GameDriver {
 	int phase;
 	int subphase;
 	std::vector<Territory> allTerritory;
+	bool winner;
 
 public:
 	GameDriver();
@@ -34,6 +35,7 @@ public:
 	
 	void gameSetup();
 	void phaseController();
+	void subphaseController();
 
 	void deploy();
 	void attack();
