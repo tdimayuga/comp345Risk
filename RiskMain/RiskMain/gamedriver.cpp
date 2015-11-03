@@ -53,19 +53,24 @@ void GameDriver::gameSetup() {
 }
 
 void GameDriver::phaseController() {
-	if(phase == 1) {
-		//players are chosen, map is chosen, countries assigned to players randomly
-	}
-	else if(phase == 2) {
-		//round-robin phase
-		//subphase 1 == deploy armies
-		//subphase 2 == attack phase
-		//subphase 3 == reinforce phase
-		//do battle code here
-		//do until there's a winner, maybe this should be a while
-	}
-	else {
-		//winner is declared
+	//cout subphase 1 = choose amount of players, randomly assign countries to players
+
+	//after that, do this loop which goes through the subphases of deploy, attack, reinforce
+	while(!winner)
+		subphaseController();
+}
+
+void GameDriver::subphaseController() {
+	for(int i = 0; i < players.size(); i++) {
+		//player[i] does their turn
+		cout << "Do you want to deploy?" << endl;
+			deploy(players[i]);
+		cout << "Do you want to attack?" << endl;
+		//if(yes)
+		//cout << who do you want to attack
+		cout << "Do you want to reinforce?" << endl;
+			reinforce(players[i]);
+
 	}
 }
 
