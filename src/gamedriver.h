@@ -17,8 +17,8 @@ class GameDriver {
 
 	std::vector<Player*> players;
 	int phase;
-	int subphase;
 	Country allCountries[1];
+	bool winner;
 
 public:
 	GameDriver();
@@ -26,20 +26,20 @@ public:
 
 	std::vector<Player*> getPlayers();
 	int getPhase();
-	int getSubPhase();
 	Country* getCountries();
+	int getAmtPlayers();
 
-	void setPlayers(Player*);
+	void addPlayers(Player*);
 	void setPhase(int);
-	void setSubPhase(int);
 	void setCountries();
 
 	void gameSetup();
 	void phaseController();
+	void subphaseController();
 
-	void deploy();
-	void attack();
-	void reinforce();
+	void deploy(Player*);
+	void attack(Player*);
+	void reinforce(Player*);
 	bool confirm();
 
 };

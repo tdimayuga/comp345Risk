@@ -11,11 +11,13 @@
 #include <string>
 #include <vector>
 
+#include "Subject.h"
+
 namespace risk {
 
 class Country;
 
-class Player {
+class Player : public Subject {
 
 private:
 	std::vector<Country*> countries;
@@ -25,12 +27,13 @@ private:
 
 public:
 	Player();
-	Player(Country*, int, std::string);
+	Player(int, std::string);
 	~Player();
 
 	std::vector<Country*> getCountries();
 	int getArmies();
 	int getContinents();
+	std::string getName();
 
 	void setCountry(Country*);
 	void addArmies(int);

@@ -21,8 +21,8 @@ Player::Player() {
 	playerName = "";
 }
 
-Player::Player(Country* country, int armies, std::string playerName) {
-	countries.push_back(country);
+Player::Player(int armies, std::string playerName) {
+	this->armies = 10;
 	this->armies += armies;
 	continents = 0;
 	this->playerName = playerName;
@@ -45,24 +45,39 @@ int Player::getContinents() {
 	return continents;
 }
 
+std::string Player::getName() {
+	return playerName;
+}
+
 void Player::setCountry(Country* country) {
 	countries.push_back(country);
+
+	Notify();
 }
 
 void Player::addArmies(int armies) {
-	armies += armies;
+	this->armies += armies;
+
+	Notify();
 }
 
 void Player::removeArmies(int armies) {
-	this-> armies -= armies;
+	this->armies -= armies;
+
+	Notify();
 }
 
 void Player::addContinents(int continent) {
 	continents += continent;
+
+	Notify();
 }
 
 bool Player::attackCountry(Country country, int armies) {
 	country.setArmies(armies);
+
+	Notify();
+
 	return true;
 }
 

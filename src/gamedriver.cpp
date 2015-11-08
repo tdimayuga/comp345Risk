@@ -6,6 +6,7 @@
  */
 
 #include "gamedriver.h"
+#include <iostream>
 
 using namespace std;
 
@@ -15,9 +16,8 @@ GameDriver::GameDriver() {
 	// TODO Auto-generated constructor stub
 
 //	gameSetup();
-
+	winner = false;
 	phase = 1;
-	subphase = 0;
 
 }
 
@@ -37,7 +37,11 @@ Country* GameDriver::getCountries() {
 	return allCountries;
 }
 
-void GameDriver::setPlayers(Player* player) {
+int GameDriver::getAmtPlayers() {
+	return players.size();
+}
+
+void GameDriver::addPlayers(Player* player) {
 	players.push_back(player);
 }
 
@@ -50,37 +54,47 @@ void GameDriver::setCountries() {
 }
 
 void GameDriver::gameSetup() {
-	//get amount of players, create each player
+	//get amount of players
 	//use RNG to choose a country for each player, can't already be taken
 }
 
 void GameDriver::phaseController() {
-	if(phase == 1) {
-		//players are chosen, map is chosen, countries assigned to players randomly
-	}
-	else if(phase == 2) {
-		//round-robin phase
-		//subphase 1 == deploy armies
-		//subphase 2 == attack phase
-		//subphase 3 == reinforce phase
-		//do battle code here
-		//do until there's a winner, maybe this should be a while
-	}
-	else {
-		//winner is declared
+
+	//cout subphase 1 = choose amount of players, randomly assign countries to players
+
+	//after that, do this loop which goes through the subphases of deploy, attack, reinforce
+	while(!winner)
+		subphaseController();
+
+}
+
+void GameDriver::subphaseController() {
+	for(int i = 0; i < players.size(); i++) {
+		//player[i] does their turn
+		cout << "Do you want to deploy?" << endl;
+			deploy(players[i]);
+		cout << "Do you want to attack?" << endl;
+		//if(yes)
+		//cout << who do you want to attack
+		cout << "Do you want to reinforce?" << endl;
+			reinforce(players[i]);
+
 	}
 }
 
-void GameDriver::deploy() {
+void GameDriver::deploy(Player* player) {
 	// deploy armies to any of your countries
+	//player add armies
 }
 
-void GameDriver::attack() {
+void GameDriver::attack(Player* player) {
 	// attack another country, if you wish
+	// player attack other country
 }
 
-void GameDriver::reinforce() {
+void GameDriver::reinforce(Player* player) {
 	//reinforce one of your other countries
+	//player reinforce country
 }
 
 bool GameDriver::confirm() {

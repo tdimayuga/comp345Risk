@@ -18,6 +18,12 @@ Country::Country() {
 	armies = 0;
 }
 
+Country::Country(Player* owner, int armies, std::string name) {
+	this->owner = owner;
+	this->armies = armies;
+	this->name = name;
+}
+
 Country::~Country() {
 	// TODO Auto-generated destructor stub
 }
@@ -32,6 +38,10 @@ Player* Country::getOwner() {
 
 int Country::getArmies() {
 	return armies;
+}
+
+std::string Country::getName() {
+	return name;
 }
 
 //void Country::setAttackable(Country countries[]) {
