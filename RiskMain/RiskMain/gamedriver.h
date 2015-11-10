@@ -10,11 +10,12 @@
 
 #include "territory.h"
 #include "player.h"
+#include "map"
 
 
 class GameDriver {
 
-	std::vector<Player*> players;
+	std::vector<Player> players;
 	int phase;
 	int subphase;
 	std::vector<Territory> allTerritory;
@@ -24,12 +25,14 @@ public:
 	GameDriver();
 	~GameDriver();
 
-	std::vector<Player*> getPlayers();
+	std::vector<Player>* getPlayers();
 	int getPhase();
 	int getSubPhase();
+	int getNumberOfPlayers();
+	int getStartingArmy(int);
 	std::vector<Territory> getTerritory();
 
-	void setPlayers(Player*);
+	void setPlayers(int);
 	void setPhase(int);
 	void setSubPhase(int);
 	

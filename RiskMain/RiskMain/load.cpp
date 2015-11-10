@@ -25,7 +25,10 @@ Load::Load(string filePath)			//Parsing through the .map text file
 	in.open(filePath);
 
 	if(in.fail())
+	{		
 		cout << "Unable to open file." << endl;
+		throw "Unable to load file";
+	}
 	else
 	{
 		string line;
@@ -148,8 +151,9 @@ Load::Load(string filePath)			//Parsing through the .map text file
 				}
 			}
 		}
-	}
-	in.close();
+		
+		in.close();
 
-	cout << "Map has been loaded successfully!" << endl; 
+		cout << "Map has been loaded successfully!" << endl; 
+	}
 }

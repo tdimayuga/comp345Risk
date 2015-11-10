@@ -17,6 +17,7 @@
     <ClInclude Include="gamedriver.h" />
     <ClInclude Include="load.h" />
     <ClInclude Include="map.h" />
+    <ClInclude Include="mapEditor.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="save.h" />
     <ClInclude Include="territory.h" />
@@ -30,6 +31,7 @@
     <ClCompile Include="load.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="mapEditor.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="save.cpp" />
     <ClCompile Include="territory.cpp" />

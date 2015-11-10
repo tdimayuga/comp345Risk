@@ -47,6 +47,14 @@ void Territory::clearTerritories()
 	adjacentTerritory.clear();
 }
 
+bool Territory::isAdjacent(string name)
+{
+	if(find(this->adjacentTerritory.begin(), this->adjacentTerritory.end(), name) != this->adjacentTerritory.end())
+		return true;
+
+	return false;
+}
+
 //Game Driver
 
 string Territory::getOwner() {

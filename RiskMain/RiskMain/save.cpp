@@ -22,8 +22,8 @@ Save::Save(Map mapX, string filePath)
 {
 	ofstream out;
 	map = mapX;
-	vector<Continent> continents = map.getContinents();
-	vector<Territory> territories = map.getTerritories();
+	vector<Continent> continents = map.continents;
+	vector<Territory> territories = map.territories;
 
 	cout << "Saving map content, please wait..." << endl;
 
@@ -50,40 +50,25 @@ Save::Save(Map mapX, string filePath)
 	
 	out << "[Territories]" << endl;
 
-	for(int i=0; i<territories.size(); i++)	//iterating through the map's Territory vector, writin out all valuable info
+
+	for(Continent c:continents)
 	{
-		out << territories[i].getName() << "," << territories[i].getXcoordinate() << "," 
-			<< territories[i].getYcoordinate() << "," << territories[i].getContinent();
-
-		for (const string& adj: territories[i].getAdjTerritory())	//iterating through the Territory's AdjacentTerritories vector and writing out to the .map file
+		for(Territory t:territories)
 		{
-			out << "," << adj;
-		}
-		
-		out << endl;
+			if(t.getContinent()==c.getName())
+			{
+				out<<t.getName()<<","<<t.getXcoordinate()<<","<<t.getYcoordinate()<<","<<t.getContinent();
 
-		if( i < territories.size()-1 &&(territories[i].getContinent() != territories[i+1].getContinent()))	//adding a blank line when we switch continent between the territories
-			out << endl;
+				for(const string& adj: t.getAdjTerritory())	//iterating through the Territory's AdjacentTerritories vector and writing out to the .map file
+					out<<","<<adj;
+
+				out<<endl;
+			}
+		}
+		out<<endl;
 	}
 
 	out.close();
 
 	cout << "Saving done!" << endl;
 }
-
-//for(int i=0; i<territories.size();i++)
-//{
-//	cout << territories[i].getName() << "," << territories[i].getXcoordinate() << "," << territories[i].getYcoordinate()
-//			<< "," << territories[i].getContinent();
-//	
-//	vector<string> adjacentTerr = territories[i].getAdjTerritory();
-
-//	for(const string& adj: adjacentTerr)
-//	{
-//		cout << "," << adj; 
-//	}
-//	cout << endl;
-
-//	if(i < territories.size()-1 && (territories[i].getContinent() != territories[i+1].getContinent()))
-//		cout << endl;
-//}

@@ -1,25 +1,36 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "save.h"
 #include "load.h"
 #include "gamedriver.h"
 #include "player.h"
+#include "map.h"
 
 using namespace std;
 
-GameDriver theGD;
+GameDriver driver;
 Load LD;
-
-
+Map gameMap;
+vector<Player>* players;
 
 void main()
 {
 
-	theGD = GameDriver();
-	LD = Load("../MapFiles/World.map");
+	driver = GameDriver();
 
-	theGD.gameSetup();
+	LD = Load("../MapFiles/World.map");
+	gameMap = LD.getMap();
+
+
+
+	driver.gameSetup();
+
+	//players = driver.getPlayers();
+	
+	system("Pause");
+
 	//phaseController
 
 	//Code uploaded by Sean - Sample Main

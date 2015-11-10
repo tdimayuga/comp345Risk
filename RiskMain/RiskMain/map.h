@@ -23,11 +23,11 @@ private:
 	std::string wrap;
 	std::string scroll;
 	std::string warn;
-	
+
+public:
 	std::vector<Continent> continents;
 	std::vector<Territory> territories;
 
-public:
 	Map();
 	//~Map();
 
@@ -36,8 +36,6 @@ public:
 	std::string getWrap(){return wrap;};
 	std::string getScroll(){return scroll;};
 	std::string getWarn(){return warn;};
-	std::vector<Continent> getContinents(){return continents;};
-	std::vector<Territory> getTerritories(){return territories;};
 
 	void setAuthor(std::string);
 	void setImage(std::string);

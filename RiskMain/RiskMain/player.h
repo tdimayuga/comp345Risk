@@ -24,12 +24,14 @@ private:
 public:
 	Player();
 	Player(Territory, int, std::string);
+	Player(int, std::string);
 	~Player();
 
 	std::vector<Territory> getTerritory();
 	int getArmies();
 	int getContinents();
 
+	void setName(std::string);
 	void setTerritory(Territory);
 	void addArmies(int);
 	void removeArmies(int);

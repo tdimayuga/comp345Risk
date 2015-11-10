@@ -42,6 +42,8 @@ public:
 	void addAdjTerritory(std::string);
 	void clearTerritories();
 
+	bool isAdjacent(std::string);
+
 	//Game Driver
 	std::string getOwner();
 	int getArmies();

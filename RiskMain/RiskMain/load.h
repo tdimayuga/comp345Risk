@@ -20,6 +20,7 @@ private:
 
 public:
 	Load(std::string);
+	Load();
 	//~Load();
 
 	Map getMap(){return map;};
