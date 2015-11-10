@@ -13,7 +13,7 @@
 #include <string>
 #include <vector>
 
-class Player {
+class Player : public Subject{
 
 private:
 	std::vector<Territory> territory;
