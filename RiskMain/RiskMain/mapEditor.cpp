@@ -213,7 +213,7 @@ void MapEditor::createMap()
 
 	cout<<fileName+" is being saved.\n\n";
 
-	Save save(map,"../MapFiles/"+fileName);		//Sending the map and file path where to write and save the .map text file
+	Save save(map,"../MapFiles/"+fileName+".map");		//Sending the map and file path where to write and save the .map text file
 }
 
 void MapEditor::createContinent()
