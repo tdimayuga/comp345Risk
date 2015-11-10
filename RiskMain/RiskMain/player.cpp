@@ -19,6 +19,11 @@ Player::Player() {
 	playerName = "";
 }
 
+Player::Player(string name) {
+	armies = 0;
+	playerName = name;
+}
+
 Player::Player(int val, string name){
 	armies = val;
 	playerName = name;
@@ -49,6 +54,10 @@ int Player::getContinents() {
 	return continents;
 }
 
+std::string Player::getName() {
+	return playerName;
+}
+
 void Player::setName(string name){
 	playerName = name;
 }
@@ -59,7 +68,7 @@ void Player::setTerritory(Territory territory) {
 }
 
 void Player::addArmies(int armies) {
-	armies += armies;
+	this->armies += armies;
 	
 	Notify();
 }

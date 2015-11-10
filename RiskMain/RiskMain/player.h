@@ -2,18 +2,19 @@
  * Player.h
  *
  *  Created on: Oct 23, 2015
- *      Author: Sean
+ *      Author: Sean-Frankel Gaon Canlas
  */
 
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
 #include "territory.h"
+#include "Subject.h"
 
 #include <string>
 #include <vector>
 
-class Player : public Subject{
+class Player : public Subject {
 
 private:
 	std::vector<Territory> territory;
@@ -23,6 +24,7 @@ private:
 
 public:
 	Player();
+	Player(std::string);
 	Player(Territory, int, std::string);
 	Player(int, std::string);
 	~Player();
@@ -30,6 +32,7 @@ public:
 	std::vector<Territory> getTerritory();
 	int getArmies();
 	int getContinents();
+	std::string getName();
 
 	void setName(std::string);
 	void setTerritory(Territory);

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,8 +18,11 @@
     <ClInclude Include="load.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="mapEditor.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="PlayerView.h" />
     <ClInclude Include="save.h" />
+    <ClInclude Include="Subject.h" />
     <ClInclude Include="territory.h" />
   </ItemGroup>
   <ItemGroup>
@@ -32,8 +35,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="mapEditor.cpp" />
+    <ClCompile Include="Observer.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="PlayerView.cpp" />
     <ClCompile Include="save.cpp" />
+    <ClCompile Include="Subject.cpp" />
     <ClCompile Include="territory.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -45,13 +51,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v10</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>

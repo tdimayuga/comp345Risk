@@ -28,9 +28,9 @@ GameDriver::~GameDriver() {
 	// TODO Auto-generated destructor stub
 }
 
-std::vector<Player>* GameDriver::getPlayers() {
+std::vector<Player*> GameDriver::getPlayers() {
 	
-	return &players;
+	return players;
 }
 
 int GameDriver::getPhase() {
@@ -43,23 +43,28 @@ vector<Territory> GameDriver::getTerritory() {
 
 void GameDriver::setPlayers(int num) {
 	string name;
-	int val = getStartingArmy(num);
+	int armies = getStartingArmy(num);
 
 	cout << "\n" << endl;
 
 	for (int i = 0; i < num; i++){
-		cout << "Player " << i + 1 << ", enter your name: " << endl;
+		cout << "Player " << i+1 << ", enter your name: " << endl;
 
 		cin.ignore();
 		getline(cin, name);
 
-		Player player = Player(val,name);
+		Player *player = new Player(name);
 		players.push_back(player);
+		PlayerView *pview = new PlayerView(player);
 		
+		player->addArmies(armies);
+
+		players.push_back(player);
+		playerViews.push_back(pview);
 	}
 	
+//	phaseController();
 	
-	//players.push_back(player);
 }
 
 void GameDriver::setPhase(int phase) {
@@ -67,27 +72,30 @@ void GameDriver::setPhase(int phase) {
 }
 
 void GameDriver::gameSetup() {
-	int num; 
+	
+	int amtPlayers;
 
-	//get amount of players, create each player
-	num = getNumberOfPlayers();
-	//setPlayers name and armies
-	setPlayers(num);
-	//use RNG to choose a country for each player, can't already be taken
+	amtPlayers = getNumberOfPlayers();
 
+	setPlayers(amtPlayers);
 }
 
 int GameDriver::getStartingArmy(int total)
 {
 	switch (total)
 	{
-	case 2: return 40;
-	case 3: return 35;
-	case 4: return 30;
-	case 5: return 25;
-	case 6: return 20;
-	default: return -1;
+		case 1: return 100;
+		case 2: return 40;
+		case 3: return 35;
+		case 4: return 30;
+		case 5: return 25;
+		case 6: return 20;
+		default: return -1;
 	}
+}
+
+void GameDriver::assignTerritories() {
+
 }
 
 int GameDriver::getNumberOfPlayers()
@@ -117,23 +125,32 @@ int GameDriver::getNumberOfPlayers()
 }
 
 void GameDriver::phaseController() {
-	//cout subphase 1 = choose amount of players, randomly assign countries to players
-
-	//after that, do this loop which goes through the subphases of deploy, attack, reinforce
 	while(!winner)
 		subphaseController();
 }
 
 void GameDriver::subphaseController() {
 	for(int i = 0; i < players.size(); i++) {
-		//player[i] does their turn
-		cout << "Do you want to deploy?" << endl;
-			//deploy(players[i]);
-		cout << "Do you want to attack?" << endl;
-		//if(yes)
-		//cout << who do you want to attack
+
+		string countryName;
+		string attackResponse;
+		string reinforceResponse;
+
+		cout << "Where do you want to deploy your armies?" << endl;
+		cin.ignore();
+		getline(cin, countryName);
+
+		cout << "Do you want to attack? (Y/N)" << endl;
+		cin.ignore();
+		getline(cin, attackResponse);
+		if (attackResponse == "Y")
+			cout << "What country would you like to use to attack?" << endl;
+
+
 		cout << "Do you want to reinforce?" << endl;
-			//reinforce(players[i]);
+		cin.ignore();
+		getline(cin, reinforceResponse);
+
 
 	}
 }

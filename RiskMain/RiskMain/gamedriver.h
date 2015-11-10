@@ -10,22 +10,24 @@
 
 #include "territory.h"
 #include "player.h"
+#include "PlayerView.h"
 #include "map"
 
 
 class GameDriver {
 
-	std::vector<Player> players;
+	std::vector<Player*> players;
+	std::vector<PlayerView*> playerViews;
 	int phase;
 	int subphase;
 	std::vector<Territory> allTerritory;
-	bool winner;
+	bool winner = false;
 
 public:
 	GameDriver();
 	~GameDriver();
 
-	std::vector<Player>* getPlayers();
+	std::vector<Player*> getPlayers();
 	int getPhase();
 	int getSubPhase();
 	int getNumberOfPlayers();
@@ -34,6 +36,7 @@ public:
 
 	void setPlayers(int);
 	void setPhase(int);
+	void assignTerritories();
 	void setSubPhase(int);
 	
 	void gameSetup();
