@@ -11,7 +11,7 @@
 #include "territory.h"
 #include "player.h"
 #include "PlayerView.h"
-#include "map"
+#include "map.h"
 
 
 class GameDriver {
@@ -20,11 +20,13 @@ class GameDriver {
 	std::vector<PlayerView*> playerViews;
 	int phase;
 	int subphase;
+
+	Map myMap;
 	std::vector<Territory> allTerritory;
-	bool winner = false;
+	bool winner;
 
 public:
-	GameDriver();
+	GameDriver(Map map);
 	~GameDriver();
 
 	std::vector<Player*> getPlayers();

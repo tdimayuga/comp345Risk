@@ -14,14 +14,16 @@ using namespace std;
 
 
 
-GameDriver::GameDriver() {
+GameDriver::GameDriver(Map map) {
 	// TODO Auto-generated constructor stub
 
 //	gameSetup();
 
 	phase = 1;
 	subphase = 0;
-
+	winner = false;
+	myMap = map;
+	allTerritory = map.territories;
 }
 
 GameDriver::~GameDriver() {
@@ -49,8 +51,6 @@ void GameDriver::setPlayers(int num) {
 
 	for (int i = 0; i < num; i++){
 		cout << "Player " << i+1 << ", enter your name: " << endl;
-
-		cin.ignore();
 		getline(cin, name);
 
 		Player *player = new Player(name);
@@ -59,10 +59,11 @@ void GameDriver::setPlayers(int num) {
 		
 		player->addArmies(armies);
 
-		players.push_back(player);
 		playerViews.push_back(pview);
+		cout << endl;
 	}
 	
+	assignTerritories();
 //	phaseController();
 	
 }
@@ -76,6 +77,9 @@ void GameDriver::gameSetup() {
 	int amtPlayers;
 
 	amtPlayers = getNumberOfPlayers();
+	
+	cin.clear(); // reset failbit
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 	setPlayers(amtPlayers);
 }
@@ -95,7 +99,20 @@ int GameDriver::getStartingArmy(int total)
 }
 
 void GameDriver::assignTerritories() {
+	for (Player *player : players)
+	{
+		int random = (rand()*rand() % allTerritory.size());
 
+		while(allTerritory[random].getOwner() != "")
+		{
+			random = (rand()*rand() % allTerritory.size());
+		}
+
+		allTerritory[random].setOwner(player->getName());
+		player->setTerritory(allTerritory[random]);
+
+		system("pause");
+	}
 }
 
 int GameDriver::getNumberOfPlayers()
@@ -130,25 +147,34 @@ void GameDriver::phaseController() {
 }
 
 void GameDriver::subphaseController() {
-	for(int i = 0; i < players.size(); i++) {
+	for(Player *player : players) {
 
 		string countryName;
 		string attackResponse;
 		string reinforceResponse;
 
 		cout << "Where do you want to deploy your armies?" << endl;
-		cin.ignore();
 		getline(cin, countryName);
 
+		//if (myMap.isValidTerritory(countryName))
+		//{
+		//	for (Territory t : player->getTerritory())
+		//	{
+		//		if (t.getName() == countryName)
+		//			deploy();
+		//	}
+		//}
+
 		cout << "Do you want to attack? (Y/N)" << endl;
-		cin.ignore();
 		getline(cin, attackResponse);
 		if (attackResponse == "Y")
+		{
 			cout << "What country would you like to use to attack?" << endl;
+			
+		}
 
 
 		cout << "Do you want to reinforce?" << endl;
-		cin.ignore();
 		getline(cin, reinforceResponse);
 
 
@@ -157,18 +183,17 @@ void GameDriver::subphaseController() {
 
 void GameDriver::deploy() {
 	// deploy armies to any of your countries
+	cout << "Deploying\n";
 }
 
 void GameDriver::attack() {
 	// attack another country, if you wish
+	cout << "attaking\n";
 }
 
 void GameDriver::reinforce() {
 	//reinforce one of your other countries
-}
-
-bool GameDriver::confirm() {
-	return false;
+	cout << "reinforcing\n";
 }
 
 

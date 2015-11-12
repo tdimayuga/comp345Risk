@@ -105,7 +105,6 @@ int Menu()
 
 void Play()
 {
-	GameDriver driver;
 	Map gameMap;
 	vector<Player>* players;
 	
@@ -123,6 +122,7 @@ void Play()
 	Load LD("../MapFiles/"+mapName+".map");
 	gameMap = LD.getMap();
 	
+	GameDriver driver(gameMap);
 
 	driver.gameSetup();
 }

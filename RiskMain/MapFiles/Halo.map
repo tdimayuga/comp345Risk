@@ -1,0 +1,16 @@
+[Map]
+author=Master Chef
+image=world.bmp
+wrap=no
+scroll=horizontal
+warn=yes
+
+[Continents]
+Earth=5
+Amurica=6
+
+[Territories]
+
+General Yeehaw,4,6,Amurica,Poro
+Poro,8,1,Amurica,General Yeehaw
+

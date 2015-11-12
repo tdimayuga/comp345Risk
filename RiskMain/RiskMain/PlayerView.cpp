@@ -34,4 +34,13 @@ void PlayerView::display() {
 	cout << "Report for " << player->getName() << endl;
 	cout << "Armies: " << armies << endl;
 
+	if (player->getTerritory().size() != 0)
+	{
+		cout << "Countries: ";
+
+		for (Territory t : player->getTerritory()) {
+			cout << t.getName() + " ";
+		}
+		cout << endl;
+	}
 }

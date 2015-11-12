@@ -176,7 +176,7 @@ void MapEditor::createMap()
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
-		cout<<"Would you like to add more?(y/n): ";
+		cout<<"Would you like to add more Continents?(y/n): ";
 		getline(cin,ans);
 		
 		while(ans!="y" && ans!="yes" && ans!="n" && ans!="no")
@@ -197,7 +197,7 @@ void MapEditor::createMap()
 	while(true){
 		createTerritory();
 
-		cout<<"Would you like to add more?(y/n): ";
+		cout<<"Would you like to add more Territories?(y/n): ";
 		getline(cin,ans);
 		
 		while(ans!="y" && ans!="yes" && ans!="n" && ans!="no")
@@ -343,7 +343,7 @@ void MapEditor::assignTerrToCont(string continent)
 				this->map.territories[i].setContinent(continent);				
 		}
 
-		cout<<"Would you like to add more?(y/n): ";
+		cout<<"Would you like to assign more Territories to "+continent+"?(y/n): ";
 		getline(cin,ans);
 		
 		while(ans!="y" && ans!="yes" && ans!="n" && ans!="no")
@@ -385,7 +385,7 @@ void MapEditor::assignAdjTerr(Territory &terr)
 				this->map.territories[i].addAdjTerritory(terr.getName());
 		}
 
-		cout<<"Would you like to add more?(y/n): ";
+		cout<<"Would you like to assign more adjacent Territories?(y/n): ";
 		getline(cin,ans);
 		
 		while(ans!="y" && ans!="yes" && ans!="n" && ans!="no")

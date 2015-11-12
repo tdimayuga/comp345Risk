@@ -15,6 +15,7 @@ Territory::Territory()
 	name = "";
 	x = NULL;
 	y = NULL;
+	owner = "";
 }
 
 void Territory::setName(string nameX)

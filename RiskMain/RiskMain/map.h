@@ -45,6 +45,7 @@ public:
 	void addContinents(Continent);
 	void addTerritories(Territory);
 
+	//bool isValidTerritory(std::string);
 };
 
 #endif
