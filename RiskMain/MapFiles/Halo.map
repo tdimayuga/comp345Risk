@@ -1,16 +1,25 @@
 [Map]
-author=Master Chef
+author=Master Chief
 image=world.bmp
 wrap=no
 scroll=horizontal
 warn=yes
 
 [Continents]
-Earth=5
-Amurica=6
+Amurica=9000
+Europe=2
+Asia=100000000
+Gigi=56
+Roll=9
 
 [Territories]
+Alberta,4,3,Amurica,China,Tatoine
+London,45,123,Amurica,China,Tatoine,Yellow
+China,56,4,Amurica,Alberta,London,Tatoine
 
-General Yeehaw,4,6,Amurica,Poro
-Poro,8,1,Amurica,General Yeehaw
+
+
+Yellow,4,6,Gigi,London
+
+Tatoine,4,5,Roll,Alberta,London,China
 
