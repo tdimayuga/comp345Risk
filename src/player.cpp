@@ -19,6 +19,7 @@ Player::Player() {
 	armies = 0;
 	continents = 0;
 	playerName = "";
+	battlesWon = 0;
 }
 
 Player::Player(int armies, std::string playerName) {
@@ -47,6 +48,14 @@ int Player::getContinents() {
 
 std::string Player::getName() {
 	return playerName;
+}
+
+int Player::getBattlesWon() {
+	return battlesWon;
+}
+
+void Player::addWin() {
+	battlesWon += 1;
 }
 
 void Player::setCountry(Country* country) {
