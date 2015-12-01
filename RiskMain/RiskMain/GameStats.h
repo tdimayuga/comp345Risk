@@ -12,6 +12,8 @@
 #include "player.h"
 
 class GameStats : public Observer {
+protected:
+	std::vector<Player*> players;
 public:
 	GameStats();
 	~GameStats();

@@ -10,8 +10,9 @@
 
 #include "GameStatsDecorator.h"
 
-class PlayerStats : public GameStatsDecorator {
+class PlayerStats : public GameStats {
 public:
+	PlayerStats();
 	PlayerStats(Player *player);
 	PlayerStats(GameStats *gameStats);
 	~PlayerStats();

@@ -8,6 +8,10 @@
 #include "PlayerStats.h"
 #include <iostream>
 
+ 	PlayerStats::PlayerStats() {
+ 		
+ 	}
+
 	PlayerStats::PlayerStats(Player *player) {
 		players.push_back(player);
 		player->Attach(this);

@@ -2,7 +2,7 @@
  * BattleStats.cpp
  *
  *  Created on: Nov 26, 2015
- *      Author: Sean
+ *      Author: Sean-Frankel Gaon Canlas
  */
 
 #include "BattleStats.h"
