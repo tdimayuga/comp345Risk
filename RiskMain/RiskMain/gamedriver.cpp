@@ -190,10 +190,13 @@ void GameDriver::subphaseController() {
 		if(reinforceResponse == "Y") {
 			cout << "Where would you like to transfer your armies from?" << endl;
 			getline(cin, countryName);
-			// if map is owned by this person then proceed, if not print out statement saying that's not his country
-			// if person owns that country, asked where he wants to deploy too
-			// check if that country is adjacent to the previous one AND if it's his
-			// if yes, then proceed
+			if(player->ownsTerritory(countryName)) {
+				cout << "What country would you like to reinforce?" << endl;
+				getline(cin, reinforceCountry);
+				if(player->ownsTerritory(reinforceCountry) && player->getTerritory(reinforceCountry).isAdjacent(countryName)) {
+					cout << "How many troops would you like to send to " << reinforceCountry << "?" << endl;
+				}
+			}
 		}
 
 
