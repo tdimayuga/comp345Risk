@@ -54,6 +54,10 @@ int Player::getContinents() {
 	return continents;
 }
 
+int Player::getBattlesWon() {
+	return battlesWon;
+}
+
 std::string Player::getName() {
 	return playerName;
 }
@@ -89,5 +93,9 @@ bool Player::attackTerritory(Territory territory, int armies)
 {
 	territory.setArmies(armies);
 	return true;
+}
+
+void Player::addBattlesWon(int battles) {
+	battlesWon += battles;
 }
 

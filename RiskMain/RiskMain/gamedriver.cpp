@@ -8,6 +8,10 @@
 #include "gamedriver.h"
 #include "territory.h"
 #include "map.h"
+#include "GameStats.h"
+#include "GameStatsDecorator.h"
+#include "BattleStats.h"
+#include "WorldStats.h"
 #include <iostream>
 
 using namespace std;
@@ -48,6 +52,8 @@ void GameDriver::setPlayers(int num) {
 	int armies = getStartingArmy(num);
 
 	cout << "\n" << endl;
+
+	GameStats *gameStats = new PlayerStats();
 
 	for (int i = 0; i < num; i++){
 		cout << "Player " << i+1 << ", enter your name: " << endl;

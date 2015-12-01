@@ -12,24 +12,33 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Battle.h" />
+    <ClInclude Include="BattleStats.h" />
     <ClInclude Include="continent.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="gamedriver.h" />
+    <ClInclude Include="GameStats.h" />
+    <ClInclude Include="GameStatsDecorator.h" />
     <ClInclude Include="load.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="mapEditor.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="PlayerStats.h" />
     <ClInclude Include="PlayerView.h" />
     <ClInclude Include="save.h" />
+    <ClInclude Include="Stats.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="territory.h" />
+    <ClInclude Include="WorldStats.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Battle.cpp" />
+    <ClCompile Include="BattleStats.cpp" />
     <ClCompile Include="continent.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="gamedriver.cpp" />
+    <ClCompile Include="GameStats.cpp" />
+    <ClCompile Include="GameStatsDecorator.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="load.cpp" />
     <ClCompile Include="main.cpp" />
@@ -37,10 +46,12 @@
     <ClCompile Include="mapEditor.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="PlayerStats.cpp" />
     <ClCompile Include="PlayerView.cpp" />
     <ClCompile Include="save.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="territory.cpp" />
+    <ClCompile Include="WorldStats.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C5A72F59-501F-407B-9871-D5F2E7FE2720}</ProjectGuid>

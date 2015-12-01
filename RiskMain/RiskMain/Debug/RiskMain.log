@@ -1,16 +1,43 @@
-﻿Build started 11/11/2015 7:51:30 PM.
-     1>Project "G:\My Documents\GitHub\comp345Risk\RiskMain\RiskMain\RiskMain.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/30/2015 6:48:07 PM.
+     1>Project "G:\My Documents\GitHub\comp345Risk\RiskMain\RiskMain\RiskMain.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt gamedriver.cpp main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Battle.cpp BattleStats.cpp continent.cpp Dice.cpp gamedriver.cpp GameStats.cpp GameStatsDecorator.cpp globals.cpp load.cpp main.cpp map.cpp mapEditor.cpp Observer.cpp player.cpp PlayerStats.cpp PlayerView.cpp save.cpp Subject.cpp territory.cpp WorldStats.cpp
+         WorldStats.cpp
+         territory.cpp
+         Subject.cpp
+         save.cpp
+     1>g:\my documents\github\comp345risk\riskmain\riskmain\save.cpp(44): warning C4018: '<' : signed/unsigned mismatch
+         PlayerView.cpp
+         PlayerStats.cpp
+         player.cpp
+         Observer.cpp
+         mapEditor.cpp
+     1>g:\my documents\github\comp345risk\riskmain\riskmain\mapeditor.cpp(88): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\my documents\github\comp345risk\riskmain\riskmain\mapeditor.cpp(115): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\my documents\github\comp345risk\riskmain\riskmain\mapeditor.cpp(340): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\my documents\github\comp345risk\riskmain\riskmain\mapeditor.cpp(325): warning C4101: 'index' : unreferenced local variable
+     1>g:\my documents\github\comp345risk\riskmain\riskmain\mapeditor.cpp(382): warning C4018: '<' : signed/unsigned mismatch
+         map.cpp
          main.cpp
      1>g:\my documents\github\comp345risk\riskmain\riskmain\main.cpp(75): warning C4101: 'players' : unreferenced local variable
+         load.cpp
+         globals.cpp
+         GameStatsDecorator.cpp
+         GameStats.cpp
          gamedriver.cpp
+         Dice.cpp
+         continent.cpp
+         BattleStats.cpp
+         Battle.cpp
          Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\My Documents\GitHub\comp345Risk\RiskMain\RiskMain\Debug\RiskMain.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\My Documents\GitHub\comp345Risk\RiskMain\RiskMain\Debug\RiskMain.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\My Documents\GitHub\comp345Risk\RiskMain\RiskMain\Debug\RiskMain.lib" /MACHINE:X86 Debug\Battle.obj
+         Debug\BattleStats.obj
          Debug\continent.obj
          Debug\Dice.obj
          Debug\gamedriver.obj
+         Debug\GameStats.obj
+         Debug\GameStatsDecorator.obj
          Debug\globals.obj
          Debug\load.obj
          Debug\main.obj
@@ -18,13 +45,15 @@
          Debug\mapEditor.obj
          Debug\Observer.obj
          Debug\player.obj
+         Debug\PlayerStats.obj
          Debug\PlayerView.obj
          Debug\save.obj
          Debug\Subject.obj
          Debug\territory.obj
+         Debug\WorldStats.obj
          RiskMain.vcxproj -> G:\My Documents\GitHub\comp345Risk\RiskMain\RiskMain\Debug\RiskMain.exe
-     1>Done Building Project "G:\My Documents\GitHub\comp345Risk\RiskMain\RiskMain\RiskMain.vcxproj" (Build target(s)).
+     1>Done Building Project "G:\My Documents\GitHub\comp345Risk\RiskMain\RiskMain\RiskMain.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:09.53
+Time Elapsed 00:00:17.97
