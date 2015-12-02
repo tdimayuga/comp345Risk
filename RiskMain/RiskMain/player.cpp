@@ -30,7 +30,7 @@ Player::Player(int val, string name){
 }
 
 Player::Player(Territory territory, int armies, std::string playerName) {
-	this->territory.push_back(territory);
+	this->territories.push_back(territory);
 	armies = 0;
 	this->armies += armies;
 	continents = 0;
@@ -43,7 +43,20 @@ Player::~Player() {
 }
 
 std::vector<Territory> Player::getTerritories() {
+<<<<<<< Updated upstream
 	return territory;
+=======
+	return territories;
+}
+
+Territory Player::getSpecificTerritory(std::string name) {
+	for(Territory terr : territories) {
+		if(terr.getName() == name)
+			return terr;
+		else
+			return null;
+	}
+>>>>>>> Stashed changes
 }
 
 int Player::getArmies() {
@@ -62,7 +75,7 @@ void Player::setName(string name){
 	playerName = name;
 }
 void Player::setTerritory(Territory territory) {
-	this->territory.push_back(territory);
+	this->territories.push_back(territory);
 	
 	Notify();
 }
@@ -91,3 +104,11 @@ bool Player::attackTerritory(Territory territory, int armies)
 	return true;
 }
 
+bool Player::ownsTerritory(std::string countryName) {
+	for(Territory terr : territory) {
+		if(terr.getName() == countryName)
+			return true;
+		else
+			return false;
+	}
+}
