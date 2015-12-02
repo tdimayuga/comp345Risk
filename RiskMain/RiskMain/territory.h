@@ -23,9 +23,10 @@ private:
 	std::string continent;
 	std::vector<std::string> adjacentTerritory;
 	std::string owner;
-	int army;
+	
 
 public:
+	int army;
 	Territory();
 	//~Territory();
 	

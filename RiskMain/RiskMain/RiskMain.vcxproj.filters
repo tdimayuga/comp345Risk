@@ -54,22 +54,22 @@
     <ClInclude Include="Subject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WorldStats.h">
+    <ClInclude Include="Card.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameStats.h">
+    <ClInclude Include="Deck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameStatsDecorator.h">
+    <ClInclude Include="Aggressive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerStats.h">
+    <ClInclude Include="ComputerPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BattleStats.h">
+    <ClInclude Include="Defensive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Stats.h">
+    <ClInclude Include="Random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,19 +119,22 @@
     <ClCompile Include="Subject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WorldStats.cpp">
+    <ClCompile Include="Card.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameStatsDecorator.cpp">
+    <ClCompile Include="Deck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerStats.cpp">
+    <ClCompile Include="Aggressive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BattleStats.cpp">
+    <ClCompile Include="ComputerPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameStats.cpp">
+    <ClCompile Include="Defensive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

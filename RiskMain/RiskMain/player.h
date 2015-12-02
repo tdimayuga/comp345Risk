@@ -10,31 +10,31 @@
 
 #include "territory.h"
 #include "Subject.h"
-
+#include "Deck.h"
 #include <string>
 #include <vector>
 
 class Player : public Subject {
 
 private:
-	std::vector<Territory> territories;
+	std::vector<Territory> territory;
 	int armies;
 	int continents;
 	std::string playerName;
-	int battlesWon;
+	
 
 public:
+	Deck theHand;
+
 	Player();
 	Player(std::string);
 	Player(Territory, int, std::string);
 	Player(int, std::string);
 	~Player();
 
-	std::vector<Territory> getTerritories();
-	Territory getSpecificTerritory(std::string name);
+	std::vector<Territory> getTerritory();
 	int getArmies();
 	int getContinents();
-	int getBattlesWon();
 	std::string getName();
 
 	void setName(std::string);
@@ -42,10 +42,8 @@ public:
 	void addArmies(int);
 	void removeArmies(int);
 	void addContinents(int);
-	void addBattlesWon(int);
 
 	bool attackTerritory(Territory territory, int armies);
-	bool ownsTerritory(std::string countryName);
 };
 
 #endif /* PLAYER_H_ */
