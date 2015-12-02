@@ -160,6 +160,7 @@ void GameDriver::subphaseController() {
 		string attackResponse;
 		string reinforceResponse;
 		string reinforceCountry;
+		int reinforceAmt;
 
 		cout << "Where do you want to deploy your armies?" << endl;
 		getline(cin, countryName);
@@ -195,6 +196,15 @@ void GameDriver::subphaseController() {
 				getline(cin, reinforceCountry);
 				if(player->ownsTerritory(reinforceCountry) && player->getTerritory(reinforceCountry).isAdjacent(countryName)) {
 					cout << "How many troops would you like to send to " << reinforceCountry << "?" << endl;
+					getline(cin, reinforceAmt);
+					if(player->getTerritory(reinforceCountry) >= reinforceAmt)
+						player->getTerritory(reinforceCountry).addArmies(reinforceAmt);
+					else {
+						cout << "There aren't that many troops in " << countryName << ". Please try again." << endl;
+						// I don't know how to make it loop back.. then again probably a while loop.
+					}
+					}
+
 				}
 			}
 		}
