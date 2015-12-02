@@ -42,7 +42,7 @@ Player::~Player() {
 
 }
 
-std::vector<Territory> Player::getTerritory() {
+std::vector<Territory> Player::getTerritories() {
 	return territory;
 }
 

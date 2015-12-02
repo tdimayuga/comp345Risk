@@ -306,12 +306,9 @@ void GameDriver::subphaseController() {
 	for(Player *player : players) {
 		string attackResponse;
 		string reinforceResponse;
-<<<<<<< HEAD
 		string reinforceCountry;
 		int reinforceAmt;
-=======
 		string fortifyResponse;
->>>>>>> origin/master
 
 		//Reinforce
 		while (true) 
@@ -321,7 +318,6 @@ void GameDriver::subphaseController() {
 			try {
 				cin >> reinforceResponse; //exception handeling
 
-<<<<<<< HEAD
 		//if (myMap.isValidTerritory(countryName))
 		//{
 		//	for (Territory t : player->getTerritory())
@@ -362,7 +358,6 @@ void GameDriver::subphaseController() {
 					}
 					}
 
-=======
 				if (reinforceResponse != "Y" || reinforceResponse != "y" || reinforceResponse != "n" || reinforceResponse != "N") {
 					throw 1;
 				}
@@ -373,7 +368,6 @@ void GameDriver::subphaseController() {
 				if (e == 1){
 					cin.clear();
 					cout << "Please Try Again: " << endl;
->>>>>>> origin/master
 				}
 			}
 

@@ -32,7 +32,7 @@ public:
 	Player(int, std::string);
 	~Player();
 
-	std::vector<Territory> getTerritory();
+	std::vector<Territory> getTerritories();
 	int getArmies();
 	int getContinents();
 	std::string getName();
