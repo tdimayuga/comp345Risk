@@ -112,12 +112,15 @@ void Play()
 	GameDriver driver(gameMap);
 
 	driver.gameSetup();
+	driver.phaseController();
 }
 
 void CreateEdit(void)
 {
 	string file, fileExtension;
 	int option;
+
+	MapEditor editor;
 
 	while (true)
 	{
@@ -138,8 +141,7 @@ void CreateEdit(void)
 
 		if (option == 1)
 		{
-			MapEditor editor;
-
+			
 			cin.clear(); // reset failbit
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
@@ -147,8 +149,7 @@ void CreateEdit(void)
 		}
 		else if (option == 2)
 		{
-			MapEditor editor;
-
+			
 			cin.clear(); // reset failbit
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 

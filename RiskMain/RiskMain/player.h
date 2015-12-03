@@ -37,6 +37,7 @@ public:
 	int getContinents();
 	std::string getName();
 
+	void setArmies(int,int);
 	void setName(std::string);
 	void setTerritory(Territory);
 	void addArmies(int);
