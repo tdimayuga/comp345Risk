@@ -18,6 +18,7 @@
 #include "Aggressive.h"
 #include "Random.h"
 #include "Defensive.h"
+#include "Battle.h"
 
 
 class GameDriver {
@@ -33,6 +34,7 @@ class GameDriver {
 	Map myMap;
 	std::vector<Territory> allTerritory;
 	bool winner;
+	bool getCard;
 	Deck deck;
 
 public:
@@ -46,6 +48,7 @@ public:
 	int getStartingArmy(int);
 	
 	std::vector<Territory> getTerritory();
+	Territory getTerritory(std::string);
 
 	void setPlayers(int);
 	void setPhase(int);
@@ -60,6 +63,8 @@ public:
 	void deploy();
 	
 	void attack(Player*);
+	int getAttackingCountryIndex(Player*);
+	std::string getDefendingCountryIndex(Territory);
 
 	//Reinforce
 	void reinforce(Player*);

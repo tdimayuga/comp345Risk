@@ -19,6 +19,7 @@ public:
 	bool all;
 	bool change;
 	bool attackBool;
+	bool takeOver;
 
 	int attackDie;
 	int defendDie;
@@ -28,11 +29,9 @@ public:
 	string troop;
 	string again;
 
-	Battle();
+	Battle(int*,int*);
 
-	void attack();
-	void getCountryToAttack();
-	void getAttackingCountry();
+	bool attack();
 	void getAttackingDie();
 	void getDefendingDie();
 	void chooseAttacking();
