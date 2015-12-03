@@ -15,6 +15,7 @@ Territory::Territory()
 	name = "";
 	x = NULL;
 	y = NULL;
+	army = 0;
 	owner = "";
 }
 
@@ -75,5 +76,5 @@ void Territory::setOwner(string ownerx) {
 }
 
 void Territory::setArmies(int armiesx) {
-	army = armiesx;
+	this->army = armiesx;
 }

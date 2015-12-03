@@ -135,7 +135,6 @@ void GameDriver::setPlayers(int num) {
 	}
 
 	assignTerritories();
-	phaseController();
 	system("pause");
 }
 
@@ -173,6 +172,10 @@ void GameDriver::assignTerritories() {
 
 	int total = 0;
 	bool sort = true;
+
+	system("cls");
+
+	cout << "Deploying armies to Territories" << endl << endl;
 
 	while (sort)
 	{
@@ -312,23 +315,17 @@ void GameDriver::subphaseController() {
 		//Reinforce
 		while (true) 
 		{
+			system("cls");
+			cout << "Turn of: "+ player->getName() << endl << endl;
 			cout << "Do you want to reinforce? (Y/N)" << endl;
-
-			try {
-				cin >> reinforceResponse; //exception handeling
-
-				if (reinforceResponse != "Y" || reinforceResponse != "y" || reinforceResponse != "n" || reinforceResponse != "N") {
-					throw 1;
-				}
-
-				
+			cin >> reinforceResponse;
+			
+			while (!reinforceResponse.compare("N") && !reinforceResponse.compare("n") && !reinforceResponse.compare("Y") && !reinforceResponse.compare("y"))
+			{
+				cout << "Invalid input, please try again. Do you want to reinforce?(Y/N): " << endl;
+				cin >> reinforceResponse;
 			}
-			catch (int e) {
-				if (e == 1){
-					cin.clear();
-					cout << "Please Try Again: " << endl;
-				}
-			}
+
 
 			if (reinforceResponse == "Y" || reinforceResponse == "y")
 			{
@@ -357,7 +354,7 @@ void GameDriver::subphaseController() {
 				if (e == 1){
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
-					cout << "Please Try Again: " << endl;
+					cout << "Please Try Again (Y/N): " << endl;
 				}
 			}
 
@@ -388,7 +385,7 @@ void GameDriver::subphaseController() {
 				if (e == 1){
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
-					cout << "Please Try Again: " << endl;
+					cout << "Please Try Again (Y/N): " << endl;
 				}
 			}
 
@@ -416,14 +413,13 @@ void GameDriver::deploy() {
 
 void GameDriver::reinforce(Player *player) {
 	//reinforce one of your other countries
-	cout << "reinforcing\n";
+	cout << "Reinforcing\n";
 
 	int units = 0;
 	int cBonus = 0;
 	int terrBonus = 0;
-	//Territory* ptrT;
 
-	units += player->getArmies(); // get army value
+	units = player->getArmies(); // get army value
 	cBonus = getCardBonus(player);// get card bonuses
 	terrBonus = (player->getTerritories().size() / 3 );
 	// get continent bonus
@@ -438,9 +434,7 @@ void GameDriver::reinforce(Player *player) {
 
 		units -= val;
 
-		//ptrT = &player->getTerritory().at(index);
-
-		player->getTerritories().at(index).setArmies(player->getTerritories().at(index).getArmies() + val);//set troops on target territory
+		player->setArmies(index, val);
 
 		cout << "\n" << player->getTerritories().at(index).getName() << " now has " <<  player->getTerritories().at(index).getArmies() <<  " units.\n" << endl; //ouput the change
 	}
@@ -497,7 +491,7 @@ int GameDriver::getReinforcingIndex(Player* player)
 
 		try {
 			//get the country the user wants to move units to, the index of the countries owned by the player
-			cout << "\nNumber of the country to fortify: " << endl;
+			cout << "\nNumber of the country to reinforce: " << endl;
 
 			cin >> num; //exception handeling
 
@@ -553,10 +547,16 @@ int GameDriver::getCardBonus(Player* player)
 			showCards(player);
 
 
-			cout << "\n Would you like to hand in your cards \n" << endl;
+			cout << "\n Would you like to hand in your cards?(Y/N): \n" << endl;
 			cin >> answer;
 
-			if (!answer.compare("no")){
+			while (!answer.compare("N") && !answer.compare("n") && !answer.compare("Y") && !answer.compare("y"))
+			{
+				cout << "Invalid input, please try again. Would you like to hand in cards?(Y/N): " << endl;
+				cin >> answer;
+			} 
+
+			if (answer.compare("N") || answer.compare("n")){
 				break;
 			}
 			else if (player->theHand.getSize() < 3 /*change to global const*/)
@@ -564,7 +564,6 @@ int GameDriver::getCardBonus(Player* player)
 				cout << "\n You do not have a Minimum of 3 cards \n" << endl;
 				break;
 			}
-
 
 			do
 			{
@@ -620,6 +619,7 @@ int GameDriver::getCardBonus(Player* player)
 		}
 	}
 
+	return addUnits;
 }
 
 void GameDriver::showCards(Player* player)
@@ -650,8 +650,8 @@ void GameDriver::attack(Player *player) {
 	atkIndex = getAttackingCountryIndex(player);
 	defName = getDefendingCountryIndex(player->getTerritories().at(atkIndex));
 
-	val1 = getTerritory(defName).getArmies();
-	val2 = player->getTerritories().at(atkIndex).getArmies();
+	val1 = player->getTerritories().at(atkIndex).getArmies(); 
+	val2 = getTerritory(defName).getArmies();
 
 	Battle theBattle(&val1,&val2);
 
@@ -661,7 +661,9 @@ void GameDriver::attack(Player *player) {
 	{
 		cout << "Debug win" << endl;
 		getTerritory(defName).setOwner(player->getName());//switch onwership
-		player->getTerritories().at(atkIndex).setArmies(1);//1 for now all remaining army goes to conguered territory
+		int c = getAttackingCountryIndex(player);
+
+		player->setArmies(atkIndex, 1);//1 for now all remaining army goes to conguered territory
 		getTerritory(defName).setArmies(val2 -1);//populate troops on new territory
 
 		if (!getCard)
@@ -751,42 +753,42 @@ int GameDriver::getAttackingCountryIndex(Player* player)
 }
 
 void GameDriver::fortify(Player *player) {
-	//fortify one of your other countries
-	cout << "fotifying\n";
+	////fortify one of your other countries
+	//cout << "fotifying\n";
 
-	string fortifyCountry;
-	string sourceCountry;
+	//string fortifyCountry;
+	//string sourceCountry;
 
-	cout << "What country would you like to fortify?" << endl;
-	getline(cin, fortifyCountry);
-	if (player->ownsTerritory(fortifyCountry)) {
-		cout << "The following are adjacent countries: " << endl;
-		Territory fortifyC = getTerritory(fortifyCountry);
-		for (string s : fortifyC.getAdjTerritory()) {
-			if(player->ownsTerritory(s))
-				cout << s << endl;
-		}
-		cout << "Which country would you like to send your armies from?" << endl;
-		getline(cin, sourceCountry);
-		if (player->ownsTerritory(sourceCountry)) {
-			while (true) {
-				cout << "How many armies would you like to send to " << fortifyCountry << " from " << sourceCountry << "?" << endl;
-				string amt;
-				getline(cin, amt);
-				int amti = stoi(amt);
-				Territory source = getTerritory(sourceCountry);
-				if (source.getArmies() >= amti) {
-					fortifyC.setArmies(fortifyC.getArmies() + amti);
-					cout << "Success. There are now " << fortifyC.getArmies() << " in " << fortifyCountry << endl;
-					break;
-				}
-				else {
-					cout << "There aren't " << amti << " armies in " << sourceCountry << endl;
-					cout << "Please enter another amount less than or equal to " << source.getArmies() << endl;
-				}
-			}
-		}
-	}
+	//cout << "What country would you like to fortify?" << endl;
+	//getline(cin, fortifyCountry);
+	//if (player->ownsTerritory(fortifyCountry)) {
+	//	cout << "The following are adjacent countries: " << endl;
+	//	Territory fortifyC = getTerritory(fortifyCountry);
+	//	for (string s : fortifyC.getAdjTerritory()) {
+	//		if(player->ownsTerritory(s))
+	//			cout << s << endl;
+	//	}
+	//	cout << "Which country would you like to send your armies from?" << endl;
+	//	getline(cin, sourceCountry);
+	//	if (player->ownsTerritory(sourceCountry)) {
+	//		while (true) {
+	//			cout << "How many armies would you like to send to " << fortifyCountry << " from " << sourceCountry << "?" << endl;
+	//			string amt;
+	//			getline(cin, amt);
+	//			int amti = stoi(amt);
+	//			Territory source = getTerritory(sourceCountry);
+	//			if (source.getArmies() >= amti) {
+	//				fortifyC.setArmies(fortifyC.getArmies() + amti);
+	//				cout << "Success. There are now " << fortifyC.getArmies() << " in " << fortifyCountry << endl;
+	//				break;
+	//			}
+	//			else {
+	//				cout << "There aren't " << amti << " armies in " << sourceCountry << endl;
+	//				cout << "Please enter another amount less than or equal to " << source.getArmies() << endl;
+	//			}
+	//		}
+	//	}
+	//}
 } // end of method fortify()
 
 
