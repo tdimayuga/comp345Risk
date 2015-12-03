@@ -216,7 +216,7 @@ void MapEditor::createMap()
 	while(true){
 		createTerritory();
 
-		cout<<"Would you like to add more?(y/n): ";
+		cout<<"Would you like to add more Territories?(y/n): ";
 		getline(cin,ans);
 		
 		while(ans!="y" && ans!="yes" && ans!="n" && ans!="no")
@@ -405,7 +405,7 @@ void MapEditor::assignAdjTerr(Territory &terr)
 				this->map.territories[i].addAdjTerritory(terr.getName());
 		}
 
-		cout<<"Would you like to assign more Adjacent Territories?(y/n): ";
+		cout<<"Would you like to assign more Adjacent Territoriesto "+terr.getName()+"?(y/n): ";
 		getline(cin,ans);
 		
 		while(ans!="y" && ans!="yes" && ans!="n" && ans!="no")
