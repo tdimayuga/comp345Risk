@@ -43,7 +43,6 @@ public:
 
 	std::vector<Player*> getPlayers();
 	int getPhase();
-	int getSubPhase();
 	int getNumberOfPlayers();
 	int getStartingArmy(int);
 	
@@ -53,7 +52,6 @@ public:
 	void setPlayers(int);
 	void setPhase(int);
 	void assignTerritories();
-	void setSubPhase(int);
 	
 	void gameSetup();
 	void phaseController();
@@ -75,9 +73,6 @@ public:
 	int getReinforceValue(int);
 	
 	void fortify(Player*);
-
-	bool confirm(Player*);
-
 };
 
 

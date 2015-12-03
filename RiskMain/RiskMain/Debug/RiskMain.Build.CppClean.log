@@ -1,66 +1,38 @@
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\battle.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\continent.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\dice.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\gamedriver.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\globals.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\load.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\main.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\map.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\mapeditor.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\player.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\save.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\territory.obj
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\vc110.pdb
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\riskmain.ilk
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\riskmain.exe
-c:\users\tan duc\documents\github\comp345risk\riskmain\riskmain\debug\riskmain.pdb
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\vc120.pdb
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\vc120.idb
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\battle.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\card.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\computerplayer.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\continent.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\deck.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\defensive.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\dice.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\gamedriver.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\globals.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\load.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\main.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\map.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\mapeditor.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\observer.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\player.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\playerview.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\random.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\save.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\subject.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\territory.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\aggressive.obj
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.ilk
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.exe
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.pdb
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\cl.command.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\cl.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\cl.write.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link-cvtres.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link-cvtres.write.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link-rc.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link-rc.write.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.9156-cvtres.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.9156-cvtres.write.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.9156-rc.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.9156-rc.write.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.9156.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.9156.write.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.command.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\link.write.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\vc110.idb
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\vc110.pdb
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.tlog\cl.command.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.tlog\cl.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.tlog\cl.write.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.tlog\link.command.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.tlog\link.read.1.tlog
-c:\users\devin\desktop\risk_new\riskmain\riskmain\debug\riskmain.tlog\link.write.1.tlog
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\vc140.pdb
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\vc140.idb
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\dice.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\gamedriver.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\globals.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\load.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\loadadapter.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\loadfile.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\loadtext.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\main.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\map.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\mapeditor.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\observer.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\player.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\playerview.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\random.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\save.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\saveadapter.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\savefile.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\savetext.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\subject.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\territory.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\aggressive.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\battle.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\card.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\computerplayer.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\continent.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\deck.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\defensive.obj
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.ilk
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.exe
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.pdb
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.tlog\cl.command.1.tlog
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.tlog\cl.read.1.tlog
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.tlog\cl.write.1.tlog
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.tlog\link.command.1.tlog
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.tlog\link.read.1.tlog
+d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\debug\riskmain.tlog\link.write.1.tlog

@@ -303,8 +303,6 @@ void GameDriver::phaseController() {
 
 void GameDriver::subphaseController() {
 	
-	
-
 	for(Player *player : players) {
 		string attackResponse;
 		string reinforceResponse;
@@ -427,7 +425,7 @@ void GameDriver::reinforce(Player *player) {
 
 	units += player->getArmies(); // get army value
 	cBonus = getCardBonus(player);// get card bonuses
-	terrBonus = (player->getTerritory().size() / 3 );
+	terrBonus = (player->getTerritories().size() / 3 );
 	// get continent bonus
 
 	units += cBonus;
@@ -442,9 +440,9 @@ void GameDriver::reinforce(Player *player) {
 
 		//ptrT = &player->getTerritory().at(index);
 
-		player->getTerritory().at(index).setArmies(player->getTerritory().at(index).getArmies() + val);//set troops on target territory
+		player->getTerritories().at(index).setArmies(player->getTerritories().at(index).getArmies() + val);//set troops on target territory
 
-		cout << "\n" << player->getTerritory().at(index).getName() << " now has " <<  player->getTerritory().at(index).getArmies() <<  " units.\n" << endl; //ouput the change
+		cout << "\n" << player->getTerritories().at(index).getName() << " now has " <<  player->getTerritories().at(index).getArmies() <<  " units.\n" << endl; //ouput the change
 	}
 
 	player->removeArmies(player->getArmies());// get rid of all troops in player
@@ -492,9 +490,9 @@ int GameDriver::getReinforcingIndex(Player* player)
 	int num = -1;
 	while (true) {
 
-		for (int i = 0; i < player->getTerritory().size(); i++)
+		for (int i = 0; i < player->getTerritories().size(); i++)
 		{
-			cout << i + 1 << ") " << player->getTerritory().at(i).getName() << " Troops: " << player->getTerritory().at(i).getArmies() << endl;
+			cout << i + 1 << ") " << player->getTerritories().at(i).getName() << " Troops: " << player->getTerritories().at(i).getArmies() << endl;
 		}
 
 		try {
@@ -503,7 +501,7 @@ int GameDriver::getReinforcingIndex(Player* player)
 
 			cin >> num; //exception handeling
 
-			if (num > player->getTerritory().size() || num < 1 || cin.fail()) {
+			if (num > player->getTerritories().size() || num < 1 || cin.fail()) {
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				throw 2;  //will throw exception if country in the list isn't in the list
@@ -650,10 +648,10 @@ void GameDriver::attack(Player *player) {
 	string defName = "";
 
 	atkIndex = getAttackingCountryIndex(player);
-	defName = getDefendingCountryIndex(player->getTerritory().at(atkIndex));
+	defName = getDefendingCountryIndex(player->getTerritories().at(atkIndex));
 
 	val1 = getTerritory(defName).getArmies();
-	val2 = player->getTerritory().at(atkIndex).getArmies();
+	val2 = player->getTerritories().at(atkIndex).getArmies();
 
 	Battle theBattle(&val1,&val2);
 
@@ -663,7 +661,7 @@ void GameDriver::attack(Player *player) {
 	{
 		cout << "Debug win" << endl;
 		getTerritory(defName).setOwner(player->getName());//switch onwership
-		player->getTerritory().at(atkIndex).setArmies(1);//1 for now all remaining army goes to conguered territory
+		player->getTerritories().at(atkIndex).setArmies(1);//1 for now all remaining army goes to conguered territory
 		getTerritory(defName).setArmies(val2 -1);//populate troops on new territory
 
 		if (!getCard)
@@ -676,7 +674,7 @@ void GameDriver::attack(Player *player) {
 	{
 		cout << "Debug loss" << endl;
 		getTerritory(defName).setArmies(val1);
-		player->getTerritory().at(atkIndex).setArmies(val2);
+		player->getTerritories().at(atkIndex).setArmies(val2);
 	}
 
 }
@@ -721,9 +719,9 @@ int GameDriver::getAttackingCountryIndex(Player* player)
 	int num = -1;
 	while (true) {
 
-		for (int i = 0; i < player->getTerritory().size(); i++)
+		for (int i = 0; i < player->getTerritories().size(); i++)
 		{
-			cout << i + 1 << ") " << player->getTerritory().at(i).getName() << " Troops: " << player->getTerritory().at(i).getArmies() << endl;
+			cout << i + 1 << ") " << player->getTerritories().at(i).getName() << " Troops: " << player->getTerritories().at(i).getArmies() << endl;
 		}
 
 		try {
@@ -732,12 +730,12 @@ int GameDriver::getAttackingCountryIndex(Player* player)
 
 			cin >> num; //exception handeling
 
-			if (num > player->getTerritory().size() || num < 1 ||cin.fail()) {
+			if (num > player->getTerritories().size() || num < 1 ||cin.fail()) {
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				throw 2;  //will throw exception if country in the list isn't in the list
 			}
-			else if (player->getTerritory().at(num).getArmies() <= 1)
+			else if (player->getTerritories().at(num).getArmies() <= 1)
 			{
 				throw 2;
 			}
@@ -755,6 +753,40 @@ int GameDriver::getAttackingCountryIndex(Player* player)
 void GameDriver::fortify(Player *player) {
 	//fortify one of your other countries
 	cout << "fotifying\n";
-}
+
+	string fortifyCountry;
+	string sourceCountry;
+
+	cout << "What country would you like to fortify?" << endl;
+	getline(cin, fortifyCountry);
+	if (player->ownsTerritory(fortifyCountry)) {
+		cout << "The following are adjacent countries: " << endl;
+		Territory fortifyC = getTerritory(fortifyCountry);
+		for (string s : fortifyC.getAdjTerritory()) {
+			if(player->ownsTerritory(s))
+				cout << s << endl;
+		}
+		cout << "Which country would you like to send your armies from?" << endl;
+		getline(cin, sourceCountry);
+		if (player->ownsTerritory(sourceCountry)) {
+			while (true) {
+				cout << "How many armies would you like to send to " << fortifyCountry << " from " << sourceCountry << "?" << endl;
+				string amt;
+				getline(cin, amt);
+				int amti = stoi(amt);
+				Territory source = getTerritory(sourceCountry);
+				if (source.getArmies() >= amti) {
+					fortifyC.setArmies(fortifyC.getArmies() + amti);
+					cout << "Success. There are now " << fortifyC.getArmies() << " in " << fortifyCountry << endl;
+					break;
+				}
+				else {
+					cout << "There aren't " << amti << " armies in " << sourceCountry << endl;
+					cout << "Please enter another amount less than or equal to " << source.getArmies() << endl;
+				}
+			}
+		}
+	}
+} // end of method fortify()
 
 

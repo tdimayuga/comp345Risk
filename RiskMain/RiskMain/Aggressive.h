@@ -6,7 +6,6 @@ class Aggressive : public ComputerPlayer
 {
 public:
 
-
 	virtual void reinforcePhase();
 	virtual void battlePhase();
 	virtual void fortifyPhase();

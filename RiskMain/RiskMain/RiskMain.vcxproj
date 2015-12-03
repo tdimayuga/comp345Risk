@@ -24,6 +24,9 @@
     <ClInclude Include="Defensive.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="gamedriver.h" />
+    <ClInclude Include="BattleStats.h" />
+    <ClInclude Include="GameStats.h" />
+    <ClInclude Include="GameStatsDecorator.h" />
     <ClInclude Include="load.h" />
     <ClInclude Include="LoadAdapter.h" />
     <ClInclude Include="LoadFile.h" />
@@ -32,6 +35,7 @@
     <ClInclude Include="mapEditor.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="PlayerStats.h" />
     <ClInclude Include="PlayerView.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="save.h" />
