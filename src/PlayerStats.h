@@ -14,6 +14,7 @@ namespace risk {
 
 class PlayerStats : public GameStats {
 public:
+	PlayerStats() {}
 	PlayerStats(Player *player);
 	PlayerStats(GameStats *gameStats);
 	~PlayerStats();
