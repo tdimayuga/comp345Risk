@@ -17,6 +17,9 @@ Copyright (C) 2015 Dich-Ky Tran. All right reserved.
 #include "territory.h"
 
 using namespace std;
+Save::~Save()
+{
+}
 
 Save::Save(Map mapX, string filePath)
 {

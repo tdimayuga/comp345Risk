@@ -702,7 +702,7 @@ string GameDriver::getDefendingCountryIndex(Territory terr)
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				throw 2;  //will throw exception if country in the list isn't in the list
 			}
-			else if( getTerritory(terr.getAdjTerritory().at(num-1)).army <= 1)
+			else if( getTerritory(terr.getAdjTerritory().at(num-1)).getArmies() <= 1)
 			{
 				throw 2;
 			}
@@ -737,7 +737,7 @@ int GameDriver::getAttackingCountryIndex(Player* player)
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				throw 2;  //will throw exception if country in the list isn't in the list
 			}
-			else if (player->getTerritory().at(num).army <= 1)
+			else if (player->getTerritory().at(num).getArmies() <= 1)
 			{
 				throw 2;
 			}

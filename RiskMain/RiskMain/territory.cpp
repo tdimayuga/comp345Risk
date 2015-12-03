@@ -18,6 +18,10 @@ Territory::Territory()
 	owner = "";
 }
 
+Territory::~Territory()
+{
+}
+
 void Territory::setName(string nameX)
 {
 	name = nameX;

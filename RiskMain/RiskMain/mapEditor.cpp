@@ -12,8 +12,8 @@ Copyright (C) 2015 Dich-Ky Tran. All right reserved.
 #include <vector>
 
 #include "mapEditor.h"
-#include "load.h"
-#include "save.h"
+#include "LoadFile.h"
+#include "SaveFile.h"
 
 #include "continent.h"
 #include "territory.h"
@@ -24,130 +24,149 @@ MapEditor::MapEditor()
 {
 }
 
-void MapEditor::editMap(string filePath)
-{	
-	try
-	{
-		Load load(filePath);		//Loading existing map to edit
-		this->map = load.getMap();
+MapEditor::~MapEditor()
+{
+}
 
-		while(true)
+void MapEditor::editMap(string extension,string fileName)
+{	
+	LoadFile loader;
+	SaveFile saver;
+
+	
+	if (!loader.load(extension, fileName))		//Loading existing map to edit
+	{
+		system("pause");
+		return;
+	}
+
+	this->map = loader.getMap();
+
+	while(true)
+	{
+		system("cls");
+
+		int option;
+
+		cout << "1. Create Continent\n";
+		cout << "2. Create Territory\n";
+		cout << "3. Assign Territory to Continent\n";
+		cout << "4. Assign Adjacent Territories\n";
+		cout << "5. Save and return to main Menu\n";
+		cout << "Please an option(digits only):\n";
+
+		while(!(cin>>option) || option < 1 || option > 5)
 		{
+			cin.clear(); // reset failbit
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			// next, request user reinput
+			cout << "Invalid input. Please try again(digits only):\n";
+		}
+
+		if(option==1)				//Creating Continents
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			system("cls");
+			createContinent();
+		}
+		else if(option==2)			//Creating Territories
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			system("cls");
+			createTerritory();
+		}
+		else if(option==3)			//Adding Territories to Continents
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			system("cls");
+			int index;
+			string name;
+
+			vector<Continent> continents=this->map.continents;
+
+			cout<<"Please enter a Continent to assign Territories to: ";
+			getline(cin,name);
+
+			while(!continentExist(name))
+			{
+				cout<<"Invalid Continent. Please enter a valid Continent:\n";
+				getline(cin,name);
+			}
+
+			for (int i=0;i<continents.size();i++) 
+			{
+				if(continents[i].getName() == name)
+					index = i;
+			}
+
 			system("cls");
 
-			int option;
-
-			cout << "1. Create Continent\n";
-			cout << "2. Create Territory\n";
-			cout << "3. Assign Territory to Continent\n";
-			cout << "4. Assign Adjacent Territories\n";
-			cout << "5. Save and return to main Menu\n";
-			cout << "Please an option(digits only):\n";
-
-			while(!(cin>>option) || option < 1 || option > 5)
-			{
-				cin.clear(); // reset failbit
-				cin.ignore(numeric_limits<streamsize>::max(),'\n');
-				// next, request user reinput
-				cout << "Invalid input. Please try again(digits only):\n";
-			}
-
-			if(option==1)				//Creating Continents
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(),'\n');
-				system("cls");
-				createContinent();
-			}
-			else if(option==2)			//Creating Territories
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(),'\n');
-				system("cls");
-				createTerritory();
-			}
-			else if(option==3)			//Adding Territories to Continents
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(),'\n');
-				system("cls");
-				int index;
-				string name;
-
-				vector<Continent> continents=this->map.continents;
-
-				cout<<"Please enter a Continent to assign Territories to: ";
-				getline(cin,name);
-
-				while(!continentExist(name))
-				{
-					cout<<"Invalid Continent. Please enter a valid Continent:\n";
-					getline(cin,name);
-				}
-
-				for (int i=0;i<continents.size();i++) 
-				{
-					if(continents[i].getName() == name)
-						index = i;
-				}
-
-				system("cls");
-
-				assignTerrToCont(continents[index].getName());
-			}
-			else if(option==4)					//Adding adjacent Territory
-			{
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(),'\n');
-				system("cls");
-				int index;
-				string name;
-
-				cout<<"Please enter a Territory to assign Adjacent Territories to: ";
-				getline(cin,name);
-
-				while(!territoryExist(name))
-				{
-					cout<<"Invalid Territory. Please enter a valid Territory:\n";
-					getline(cin,name);
-				}
-
-				for (int i=0;i<this->map.territories.size();i++)				//grabbing the index of the Territory to modify it
-				{
-					if(this->map.territories[i].getName() == name)
-						index = i;
-				}
-
-				system("cls");
-
-				assignAdjTerr(this->map.territories[index]);
-
-				////Testing output
-				//system("cls");
-				//for(string c:this->map.territories[index].getAdjTerritory())
-				//{
-				//	cout<<c+" ";
-				//}
-				//cout<<endl;
-			}
-			else if (option==5)
-			{
-				Save save(map,filePath);		//Sending the map and file path where to write and save the .map text file
-				break;
-			}
+			assignTerrToCont(continents[index].getName());
 		}
-	}
-	catch(string e ) {
-		cout << e;
+		else if(option==4)					//Adding adjacent Territory
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			system("cls");
+			int index;
+			string name;
+
+			cout<<"Please enter a Territory to assign Adjacent Territories to: ";
+			getline(cin,name);
+
+			while(!territoryExist(name))
+			{
+				cout<<"Invalid Territory. Please enter a valid Territory:\n";
+				getline(cin,name);
+			}
+
+			for (int i=0;i<this->map.territories.size();i++)				//grabbing the index of the Territory to modify it
+			{
+				if(this->map.territories[i].getName() == name)
+					index = i;
+			}
+
+			system("cls");
+
+			assignAdjTerr(this->map.territories[index]);
+
+			////Testing output
+			//system("cls");
+			//for(string c:this->map.territories[index].getAdjTerritory())
+			//{
+			//	cout<<c+" ";
+			//}
+			//cout<<endl;
+		}
+		else if (option==5)
+		{
+			saver.save(map, extension, fileName);		//Sending the map and file path where to write and save the .map text file
+			system("pause");
+			break;
+		}
 	}
 }
 
 void MapEditor::createMap()
 {
+	SaveFile saver;
+
 	system("cls");
-	string fileName,author,ans;
+	string fileExtension,fileName,author,ans;
 
 	cout<<"Creating new map\n\n";
+	cout << "Please enter the file format(map or txt): ";
+	getline(cin, fileExtension);
+
+	while (fileExtension!="map" && fileExtension!="txt")
+	{
+		cout << "Invalid file type. Please enter a correct file type(map or txt): ";
+		getline(cin, fileExtension);
+	}
+
 	cout<<"Please enter the Name of the new Map: ";
 	getline(cin,fileName);
 
@@ -197,7 +216,7 @@ void MapEditor::createMap()
 	while(true){
 		createTerritory();
 
-		cout<<"Would you like to add more Territories?(y/n): ";
+		cout<<"Would you like to add more?(y/n): ";
 		getline(cin,ans);
 		
 		while(ans!="y" && ans!="yes" && ans!="n" && ans!="no")
@@ -213,7 +232,8 @@ void MapEditor::createMap()
 
 	cout<<fileName+" is being saved.\n\n";
 
-	Save save(map,"../MapFiles/"+fileName+".map");		//Sending the map and file path where to write and save the .map text file
+	 saver.save(map, fileExtension, fileName);		//Sending the map and file path where to write and save the .map text file
+	system("pause");
 }
 
 void MapEditor::createContinent()
@@ -385,7 +405,7 @@ void MapEditor::assignAdjTerr(Territory &terr)
 				this->map.territories[i].addAdjTerritory(terr.getName());
 		}
 
-		cout<<"Would you like to assign more adjacent Territories?(y/n): ";
+		cout<<"Would you like to assign more Adjacent Territories?(y/n): ";
 		getline(cin,ans);
 		
 		while(ans!="y" && ans!="yes" && ans!="n" && ans!="no")

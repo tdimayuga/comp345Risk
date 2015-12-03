@@ -29,7 +29,7 @@ public:
 	std::vector<Territory> territories;
 
 	Map();
-	//~Map();
+	~Map();
 
 	std::string getAuthor(){return author;};
 	std::string getImage(){return image;};
@@ -45,7 +45,6 @@ public:
 	void addContinents(Continent);
 	void addTerritories(Territory);
 
-	//bool isValidTerritory(std::string);
 };
 
 #endif

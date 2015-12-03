@@ -21,7 +21,7 @@ private:
 
 public:
 	Save(Map, std::string);
-	//~Save();
+	~Save();
 };
 
 #endif

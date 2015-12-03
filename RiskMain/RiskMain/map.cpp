@@ -19,6 +19,10 @@ Map::Map()
 	warn = "";
 }
 
+Map::~Map()
+{
+}
+
 void Map::setAuthor(string authorX)
 {
 	author = authorX;
@@ -53,11 +57,3 @@ void Map::addTerritories(Territory terr)
 {
 	territories.push_back(terr);
 }
-
-//bool Map::isValidTerritory(string name)
-//{
-//	/*if (find(this->territories.begin(), this->territories.end(), name) != this->territories.end())
-//		return true;
-//
-//	return false;*/
-//}

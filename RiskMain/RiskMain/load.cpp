@@ -16,6 +16,10 @@ Copyright (C) 2015 Dich-Ky Tran. All right reserved.
 
 using namespace std;
 
+Load::~Load()
+{
+}
+
 Load::Load(string filePath)			//Parsing through the .map text file
 {
 	ifstream in;
@@ -157,3 +161,5 @@ Load::Load(string filePath)			//Parsing through the .map text file
 		cout << "Map has been loaded successfully!" << endl; 
 	}
 }
+
+
