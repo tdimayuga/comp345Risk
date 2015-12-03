@@ -1,5 +1,5 @@
-﻿Build started 12/2/2015 9:55:22 PM.
-     1>Project "D:\Users\Sean\Google Drive\GitHub\comp345Risk\RiskMain\RiskMain\RiskMain.vcxproj" on node 2 (Build target(s)).
+﻿Build started 12/2/2015 11:44:05 PM.
+     1>Project "D:\Users\Sean\Google Drive\GitHub\comp345Risk\RiskMain\RiskMain\RiskMain.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Aggressive.cpp Battle.cpp Card.cpp ComputerPlayer.cpp continent.cpp Deck.cpp Defensive.cpp Dice.cpp gamedriver.cpp globals.cpp load.cpp LoadAdapter.cpp LoadFile.cpp LoadText.cpp main.cpp map.cpp mapEditor.cpp Observer.cpp player.cpp PlayerView.cpp Random.cpp save.cpp SaveAdapter.cpp SaveFile.cpp SaveText.cpp Subject.cpp territory.cpp
          territory.cpp
@@ -33,21 +33,22 @@
      1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(106): warning C4101: 'e': unreferenced local variable
      1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(183): warning C4018: '<': signed/unsigned mismatch
      1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(216): warning C4018: '<': signed/unsigned mismatch
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(495): warning C4018: '<': signed/unsigned mismatch
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(506): warning C4018: '>': signed/unsigned mismatch
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(514): warning C4101: 'e': unreferenced local variable
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(635): warning C4018: '<': signed/unsigned mismatch
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(688): warning C4018: '<': signed/unsigned mismatch
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(700): warning C4018: '>': signed/unsigned mismatch
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(712): warning C4101: 'e': unreferenced local variable
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(724): warning C4018: '<': signed/unsigned mismatch
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(735): warning C4018: '>': signed/unsigned mismatch
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(747): warning C4101: 'e': unreferenced local variable
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(493): warning C4018: '<': signed/unsigned mismatch
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(504): warning C4018: '>': signed/unsigned mismatch
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(512): warning C4101: 'e': unreferenced local variable
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(633): warning C4018: '<': signed/unsigned mismatch
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(686): warning C4018: '<': signed/unsigned mismatch
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(698): warning C4018: '>': signed/unsigned mismatch
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(710): warning C4101: 'e': unreferenced local variable
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(722): warning C4018: '<': signed/unsigned mismatch
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(733): warning C4018: '>': signed/unsigned mismatch
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(745): warning C4101: 'e': unreferenced local variable
          Dice.cpp
          Generating Code...
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(537): warning C4715: 'GameDriver::getTurnInUnits': not all control paths return a value
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(625): warning C4715: 'GameDriver::getCardBonus': not all control paths return a value
-     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(640): warning C4715: 'GameDriver::getTerritory': not all control paths return a value
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(535): warning C4715: 'GameDriver::getTurnInUnits': not all control paths return a value
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(623): warning C4715: 'GameDriver::getCardBonus': not all control paths return a value
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\gamedriver.cpp(638): warning C4715: 'GameDriver::getTerritory': not all control paths return a value
+     1>d:\users\sean\google drive\github\comp345risk\riskmain\riskmain\player.cpp(102): warning C4715: 'Player::ownsTerritory': not all control paths return a value
          Compiling...
          Defensive.cpp
          Deck.cpp
@@ -89,10 +90,9 @@
          Debug\SaveText.obj
          Debug\Subject.obj
          Debug\territory.obj
-         LINK : D:\Users\Sean\Google Drive\GitHub\comp345Risk\RiskMain\RiskMain\Debug\RiskMain.exe not found or not built by the last incremental link; performing full link
          RiskMain.vcxproj -> D:\Users\Sean\Google Drive\GitHub\comp345Risk\RiskMain\RiskMain\Debug\RiskMain.exe
-     1>Done Building Project "D:\Users\Sean\Google Drive\GitHub\comp345Risk\RiskMain\RiskMain\RiskMain.vcxproj" (Build target(s)).
+     1>Done Building Project "D:\Users\Sean\Google Drive\GitHub\comp345Risk\RiskMain\RiskMain\RiskMain.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:12.62
+Time Elapsed 00:00:11.79

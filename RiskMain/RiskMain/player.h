@@ -17,7 +17,7 @@
 class Player : public Subject {
 
 private:
-	std::vector<Territory> territory;
+	std::vector<Territory> territories;
 	int armies;
 	int continents;
 	std::string playerName;
@@ -32,7 +32,7 @@ public:
 	Player(int, std::string);
 	~Player();
 
-	std::vector<Territory> getTerritory();
+	std::vector<Territory> getTerritories();
 	int getArmies();
 	int getContinents();
 	std::string getName();
@@ -44,6 +44,8 @@ public:
 	void addContinents(int);
 
 	bool attackTerritory(Territory territory, int armies);
+	bool ownsTerritory(std::string countryName);
+	
 };
 
 #endif /* PLAYER_H_ */
