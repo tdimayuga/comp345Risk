@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -11,6 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractLoad.h" />
+    <ClInclude Include="AbstractSave.h" />
+    <ClInclude Include="AdvanceLoad.h" />
+    <ClInclude Include="AdvanceSave.h" />
     <ClInclude Include="Aggressive.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Card.h" />
@@ -21,6 +25,9 @@
     <ClInclude Include="Dice.h" />
     <ClInclude Include="gamedriver.h" />
     <ClInclude Include="load.h" />
+    <ClInclude Include="LoadAdapter.h" />
+    <ClInclude Include="LoadFile.h" />
+    <ClInclude Include="LoadText.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="mapEditor.h" />
     <ClInclude Include="Observer.h" />
@@ -28,6 +35,9 @@
     <ClInclude Include="PlayerView.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="save.h" />
+    <ClInclude Include="SaveAdapter.h" />
+    <ClInclude Include="SaveFile.h" />
+    <ClInclude Include="SaveText.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="territory.h" />
   </ItemGroup>
@@ -43,6 +53,9 @@
     <ClCompile Include="gamedriver.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="load.cpp" />
+    <ClCompile Include="LoadAdapter.cpp" />
+    <ClCompile Include="LoadFile.cpp" />
+    <ClCompile Include="LoadText.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="mapEditor.cpp" />
@@ -51,6 +64,9 @@
     <ClCompile Include="PlayerView.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="save.cpp" />
+    <ClCompile Include="SaveAdapter.cpp" />
+    <ClCompile Include="SaveFile.cpp" />
+    <ClCompile Include="SaveText.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="territory.cpp" />
   </ItemGroup>
@@ -63,7 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

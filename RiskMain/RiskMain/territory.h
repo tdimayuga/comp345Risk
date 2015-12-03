@@ -23,12 +23,13 @@ private:
 	std::string continent;
 	std::vector<std::string> adjacentTerritory;
 	std::string owner;
-	
+
+	//Game Driver
+	int army;
 
 public:
-	int army;
 	Territory();
-	//~Territory();
+	~Territory();
 	
 	std::string getName(){return name;};
 	int getXcoordinate(){return x;};

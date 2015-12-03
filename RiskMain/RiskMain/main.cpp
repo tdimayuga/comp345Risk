@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-#include "save.h"
-#include "load.h"
+#include "SaveFile.h"
+#include "LoadFile.h"
 #include "mapEditor.h"
 #include "gamedriver.h"
 #include "player.h"
@@ -15,7 +15,7 @@ using namespace std;
 int Menu();
 void Play();
 void CreateEdit();
-bool fileExist(string);
+bool fileExist(string, string);
 
 void main()
 {
@@ -74,19 +74,40 @@ void Play()
 	Map gameMap;
 	vector<Player>* players;
 	
-	string mapName;
+	string mapName, fileExtension;
+	LoadFile loader;
 
 	cout<<"Please enter the name of the map you want to play on: ";
 	getline(cin,mapName);
 
-	while(!fileExist(mapName))
+	cout << "Please enter the file format(map or txt): ";
+	getline(cin, fileExtension);
+
+	while (fileExtension != "map" && fileExtension != "txt")
+	{
+		cout << "Invalid file type. Please enter a correct file type(map or txt): ";
+		getline(cin, fileExtension);
+	}
+
+	while(!fileExist(mapName, fileExtension))
 	{
 		cout<<"Map does not exist. Please chose a valid map(ex:World): ";
 		getline(cin,mapName);
+
+		cout << "Please enter the file format(map or txt): ";
+		getline(cin, fileExtension);
+
+		while (fileExtension != "map" && fileExtension != "txt")
+		{
+			cout << "Invalid file type. Please enter a correct file type(map or txt): ";
+			getline(cin, fileExtension);
+		}
 	}
 
-	Load LD("../MapFiles/"+mapName+".map");
-	gameMap = LD.getMap();
+	if (!loader.load(fileExtension, mapName))
+		return;
+
+	gameMap = loader.getMap();
 	
 	GameDriver driver(gameMap);
 
@@ -95,52 +116,70 @@ void Play()
 
 void CreateEdit(void)
 {
-	MapEditor editor;
-	string file;
+	string file, fileExtension;
 	int option;
 
-	while(true)
+	while (true)
 	{
-		cout<<"1.Create new map\n";
-		cout<<"2.Edit existing map\n";
-		cout<<"3.Exit\n";
-		cout<<"Please choose one of the option above(digits only):\n";
-		
-		while(!(cin>>option) || option < 1 || option > 3)
+		system("cls");
+
+		cout << "1.Create new map\n";
+		cout << "2.Edit existing map\n";
+		cout << "3.Exit\n";
+		cout << "Please choose one of the option above(digits only):\n";
+
+		while (!(cin >> option) || option < 1 || option > 3)
 		{
 			cin.clear(); // reset failbit
-			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			// next, request user reinput
 			cout << "Invalid input. Please try again(digits only):\n";
 		}
 
-		if(option == 1)
+		if (option == 1)
 		{
+			MapEditor editor;
+
 			cin.clear(); // reset failbit
-			cin.ignore(numeric_limits<streamsize>::max(),'\n');
-			
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 			editor.createMap();
 		}
-		else if(option==2)
+		else if (option == 2)
 		{
+			MapEditor editor;
+
 			cin.clear(); // reset failbit
-			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-			cout<<"\nPlease enter the name of the map to be edited(ex:a1.map):\n";
-			getline(cin,file);
+			cout << "\nPlease enter the name of the map to be edited:\n";
+			getline(cin, file);
 
-			editor.editMap("../MapFiles/"+file);
+			cout << "Please enter the file format(map or txt): ";
+			getline(cin, fileExtension);
+
+			while (fileExtension != "map" && fileExtension != "txt")
+			{
+				cout << "Invalid file type. Please enter a correct file type(map or txt): ";
+				getline(cin, fileExtension);
+			}
+
+			editor.editMap(fileExtension, file);
 		}
 		else
+		{
+			system("cls");
 			break;
+		}
+
 	}
 }
 
-bool fileExist(string name) 
+bool fileExist(string name, string extension) 
 {
 	ifstream in;
 
-	in.open("../MapFiles/"+name+".map");
+	in.open("../MapFiles/"+name+"."+extension);
 	
 	if(in.fail())
 		return false;

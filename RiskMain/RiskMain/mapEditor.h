@@ -21,9 +21,9 @@ private:
 	Map map;
 public:
 	MapEditor();
-	//~MapEditor();
+	~MapEditor();
 
-	void editMap(std::string);
+	void editMap(std::string, std::string);
 	void createMap();
 
 	void createContinent();
