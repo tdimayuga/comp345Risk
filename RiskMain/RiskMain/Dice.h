@@ -7,11 +7,12 @@ class Dice
 public:
 
 	
-	int defArray[3];
-	int atkArray[2];
+	int defArray[2];
+	int atkArray[3];
 
 	Dice();
 
+	void resetDice();
 	void compareDice(int, int,int*,int*);
 	void rollDice(int,int);
 

@@ -42,12 +42,15 @@
     <ClInclude Include="SaveAdapter.h" />
     <ClInclude Include="SaveFile.h" />
     <ClInclude Include="SaveText.h" />
+    <ClInclude Include="Stats.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="territory.h" />
+    <ClInclude Include="WorldStats.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Aggressive.cpp" />
     <ClCompile Include="Battle.cpp" />
+    <ClCompile Include="BattleStats.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="ComputerPlayer.cpp" />
     <ClCompile Include="continent.cpp" />
@@ -55,6 +58,8 @@
     <ClCompile Include="Defensive.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="gamedriver.cpp" />
+    <ClCompile Include="GameStats.cpp" />
+    <ClCompile Include="GameStatsDecorator.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="load.cpp" />
     <ClCompile Include="LoadAdapter.cpp" />
@@ -65,6 +70,7 @@
     <ClCompile Include="mapEditor.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="PlayerStats.cpp" />
     <ClCompile Include="PlayerView.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="save.cpp" />
@@ -73,6 +79,7 @@
     <ClCompile Include="SaveText.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="territory.cpp" />
+    <ClCompile Include="WorldStats.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C5A72F59-501F-407B-9871-D5F2E7FE2720}</ProjectGuid>
@@ -83,7 +90,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">

@@ -19,6 +19,7 @@
 #include "Random.h"
 #include "Defensive.h"
 #include "Battle.h"
+#include "GameStats.h"
 
 
 class GameDriver {
@@ -36,6 +37,8 @@ class GameDriver {
 	bool winner;
 	bool getCard;
 	Deck deck;
+
+	GameStats *gameStats;
 
 public:
 	GameDriver(Map map);
@@ -60,6 +63,7 @@ public:
 	
 	void deploy();
 	
+	Player* getPlayer(std::string);
 	void attack(Player*);
 	int getAttackingCountryIndex(Player*);
 	std::string getDefendingCountryIndex(Territory);
@@ -73,6 +77,7 @@ public:
 	int getReinforceValue(int);
 	
 	void fortify(Player*);
+	bool checkWinner();
 };
 
 
