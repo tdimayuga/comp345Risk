@@ -18,7 +18,7 @@ BattleStats::~BattleStats() {
 }
 
 void BattleStats::display() {
-	system("cls");
+	
 	cout << endl;
 	cout << "BATTLE STATS" << endl;
 	for(Player *player : players) {

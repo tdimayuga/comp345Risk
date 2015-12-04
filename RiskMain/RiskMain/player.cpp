@@ -70,7 +70,6 @@ std::string Player::getName() {
 }
 
 void Player::setArmies(int i, int v){
-	v += territories.at(i).getArmies();
 	this->territories.at(i).setArmies(v);
 }
 

@@ -75,6 +75,10 @@ public:
 	int getCardBonus(Player*);
 	int getReinforcingIndex(Player*);
 	int getReinforceValue(int);
+	int getDestinationFortifyingIndex(Player*);
+	int getSourceFortifyingValue(int);
+	int getSourceFortifyingIndex(Player*, int);
+	//int getDestinationFortifyingValue(int);
 	
 	void fortify(Player*);
 	bool checkWinner();

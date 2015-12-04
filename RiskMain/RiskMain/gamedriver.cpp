@@ -417,7 +417,7 @@ void GameDriver::subphaseController() {
 			try {
 				cin >> fortifyResponse; //exception handeling
 
-				if (attackResponse != "Y" || fortifyResponse != "y" || fortifyResponse != "n" || fortifyResponse != "N") {
+				if (fortifyResponse != "Y" || fortifyResponse != "y" || fortifyResponse != "n" || fortifyResponse != "N") {
 					throw 1;
 				}
 
@@ -831,41 +831,137 @@ int GameDriver::getAttackingCountryIndex(Player* player)
 
 void GameDriver::fortify(Player *player) {
 	//fortify one of your other countries
-	/*cout << "fotifying\n";
+	string ans;
+	int turns = 0;
 
-	string fortifyCountry;
-	string sourceCountry;
+	while (true){
+		system("cls");
+		cout << "Fotifying  (Only 2 turns max)\n\n";
 
-	cout << "What country would you like to fortify?" << endl;
-	getline(cin, fortifyCountry);
-	if (player->ownsTerritory(fortifyCountry)) {
-		cout << "The following are adjacent countries: " << endl;
-		Territory fortifyC = getTerritory(fortifyCountry);
-		for (string s : fortifyC.getAdjTerritory()) {
-			if(player->ownsTerritory(s))
-				cout << s << endl;
+		turns++;
+
+		int destinationIndex = getDestinationFortifyingIndex(player);
+		int destinationVal = player->getTerritories().at(destinationIndex).getArmies();
+		
+		cout << endl;
+
+		int sourceIndex = getSourceFortifyingIndex(player, destinationIndex);
+		int sourceUnit = player->getTerritories().at(sourceIndex).getArmies();
+
+		int sourceVal = getSourceFortifyingValue(sourceUnit-1);
+
+		sourceUnit -= sourceVal;
+		destinationVal += sourceVal;
+
+		player->setArmies(destinationIndex, destinationVal);
+		player->setArmies(sourceIndex, sourceUnit);
+
+		cout << "\nNumber of troops from " + player->getTerritories().at(sourceIndex).getName() + " added to " + player->getTerritories().at(destinationIndex).getName() + " with total troops of: " << player->getTerritories().at(destinationIndex).getArmies() << endl;
+		system("pause");
+
+		if (turns == 2)
+			break;
+
+		cout << "Are you done Fortifying(Y/N): ";
+		cin >> ans;
+
+		while (ans != "Y" && ans != "y" && ans != "N" && ans != "n")
+		{
+			cout << "Invalid input. Please anser (Y/N): ";
+			cin >> ans;
 		}
-		cout << "Which country would you like to send your armies from?" << endl;
-		getline(cin, sourceCountry);
-		if (player->ownsTerritory(sourceCountry)) {
-			while (true) {
-				cout << "How many armies would you like to send to " << fortifyCountry << " from " << sourceCountry << "?" << endl;
-				string amt;
-				getline(cin, amt);
-				int amti = stoi(amt);
-				Territory source = getTerritory(sourceCountry);
-				if (source.getArmies() >= amti) {
-					fortifyC.setArmies(fortifyC.getArmies() + amti);
-					cout << "Success. There are now " << fortifyC.getArmies() << " in " << fortifyCountry << endl;
-					break;
-				}
-				else {
-					cout << "There aren't " << amti << " armies in " << sourceCountry << endl;
-					cout << "Please enter another amount less than or equal to " << source.getArmies() << endl;
-				}
-			}
-		}
-	}*/
+
+		if (ans == "y" || ans == "Y")
+			break;
+	}
 } // end of method fortify()
 
+int GameDriver::getDestinationFortifyingIndex(Player* player){
+	int index = -1;
+	int PowerTerrCount = 0;
 
+	for (int i = 0; i < player->getTerritories().size(); i++)
+	{
+		cout << i + 1 << ") " << player->getTerritories().at(i).getName() << " Troops: " << player->getTerritories().at(i).getArmies() << endl;
+		if (player->getTerritories().at(i).getArmies()>1)
+			PowerTerrCount++;
+	}
+
+	cout << "\nWhich country would you like to fortify?" << endl;
+
+	cin >> index;
+	while (index > player->getTerritories().size() || index < 1 || cin.fail() || (player->getTerritories().at(index - 1).getArmies()>1 && PowerTerrCount == 1)){
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "The select country is not valid." << endl;
+		cin >> index;
+	}
+
+	return index - 1;
+}
+
+int GameDriver::getSourceFortifyingValue(int num){
+	int add;
+
+	while (true) {
+		cout << "\nEnter the amount of units you want to Fortify with (" << num << " units left): " << endl;
+
+		try {
+			cin >> add; //will throw exception if input isn't an int 
+
+			if (add > num) {
+				throw 1;  //will throw exception if country in the list isn't in the list
+			}
+
+			if (add < 1 || cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				throw 2;
+			}
+
+			break; //if no exception thrown, while loop is exited
+		}
+		catch (int e) {
+			if (e == 1) {
+				cout << "You don't have enough units for that." << endl;
+			}
+
+			else {
+				//invalid message
+				cout << "The selected amount is not valid." << endl;
+			}
+		}
+	}//end while loop
+
+	return  add;
+}
+
+int GameDriver::getSourceFortifyingIndex(Player* player, int destinationIndex){
+	int index = -1;
+	vector<int> a;
+	int x = 0;
+
+	for (int i = 0; i < player->getTerritories().size(); i++)
+	{
+		if (i != destinationIndex &&  player->getTerritories().at(i).getArmies() > 1)
+		{
+			cout << i + 1 << ") " << player->getTerritories().at(i).getName() << " Troops: " << player->getTerritories().at(i).getArmies() << endl;
+			a.push_back(i);
+		}
+	}
+
+	cout << "\nWhich country would you like to send the troops from?" << endl;
+	cin >> index;
+	
+	bool in = find(a.begin(), a.end(), index-1) != a.end();
+
+	while ( !in ||cin.fail()){
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "The select country is not valid." << endl;
+		cin >> index;
+		in = find(a.begin(), a.end(), index-1) != a.end();
+	}
+
+	return index - 1;
+}
