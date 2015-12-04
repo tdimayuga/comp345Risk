@@ -31,6 +31,7 @@
 	}
 
 	void PlayerStats::display() {
+		system("cls");
 			cout << endl;
 			cout << "GAME STATS" << endl;
 
