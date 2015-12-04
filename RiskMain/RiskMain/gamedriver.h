@@ -60,6 +60,7 @@ public:
 	
 	void deploy();
 	
+	Player* getPlayer(std::string);
 	void attack(Player*);
 	int getAttackingCountryIndex(Player*);
 	std::string getDefendingCountryIndex(Territory);
@@ -73,6 +74,7 @@ public:
 	int getReinforceValue(int);
 	
 	void fortify(Player*);
+	bool checkWinner();
 };
 
 

@@ -80,6 +80,7 @@ bool Battle::checkWin()
 		cout << "Attackers win!!!" << endl;
 		cout << "You Have Taken Over A New Country" << endl;
 		attackBool = false;
+		takeOver = true;
 		//reinforce new area
 		return true;
 	}
@@ -88,6 +89,7 @@ bool Battle::checkWin()
 		cout << "Defenders win!!!" << endl;
 		cout << "They Have Defended Their Country" << endl;
 		attackBool = false;
+		takeOver = false;
 		return true;
 	}
 	return false;
@@ -137,7 +139,6 @@ void Battle::getAttackingDie()
 		if (troop == "allin")
 		{
 			all = true;
-			break;
 		}
 		else
 			attackDie = stoi(troop.c_str());//gets amount of troops, attacking

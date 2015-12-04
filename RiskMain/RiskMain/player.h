@@ -33,10 +33,12 @@ public:
 	~Player();
 
 	std::vector<Territory> getTerritories();
+	Territory getTerritory(std::string);
 	int getArmies();
 	int getContinents();
 	std::string getName();
 
+	void removeTerritory(std::string);
 	void setArmies(int,int);
 	void setName(std::string);
 	void setTerritory(Territory);

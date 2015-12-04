@@ -58,8 +58,26 @@ std::string Player::getName() {
 	return playerName;
 }
 
+Territory Player::getTerritory(string name)
+{
+	for (int i = 0; i < territories.size(); i++)
+	{
+		if (territories.at(i).getName() == name)
+			return territories.at(i);
+	}
+}
+void Player::removeTerritory(string name)
+{
+	for (int i = 0; i < territories.size(); i++)
+	{
+		if (territories.at(i).getName() == name)
+			territories.erase(territories.begin() + i);
+	}
+}
+
+	
 void Player::setArmies(int i, int v){
-	v += territories.at(i).getArmies();
+	
 	this->territories.at(i).setArmies(v);
 }
 

@@ -15,10 +15,30 @@ Dice::Dice()
 {
 
 }
+void Dice::resetDice()
+{
+	for (int i = 0; i< 2; i++)
+	{ //store the die rolled in appropriate arrays
+
+	//random number between 1-6
+
+		atkArray[i] = 0;
+	}
+
+	for (int i = 0; i< 3; i++)
+	{ //store the die rolled in appropriate arrays
+
+		//random number between 1-6
+
+		defArray[i] = 0;
+	}
+}
 void Dice::rollDice(int atck, int def)
 {//Rolls and stores the die for attackers and defenders
 
 	int die = 0;
+	//resetDice();
+
 	for (int i = 0; i< atck; i++)
 	{ //store the die rolled in appropriate arrays
 		
