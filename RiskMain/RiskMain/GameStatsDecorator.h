@@ -1,9 +1,9 @@
 /*
-* GameStatsDecorator.h
-*
-*  Created on: Nov 26, 2015
-*      Author: Sean
-*/
+ * GameStatsDecorator.h
+ *
+ *  Created on: Nov 26, 2015
+ *      Author: Sean
+ */
 
 #ifndef GAMESTATSDECORATOR_H_
 #define GAMESTATSDECORATOR_H_
@@ -20,7 +20,6 @@ public:
 	~GameStatsDecorator();
 	void Update();
 	void display();
-
 };
 
 #endif /* GAMESTATSDECORATOR_H_ */

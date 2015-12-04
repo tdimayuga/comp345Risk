@@ -9,6 +9,9 @@
 #include "territory.h"
 #include "map.h"
 #include <iostream>
+#include "PlayerStats.h"
+#include "WorldStats.h"
+#include "BattleStats.h"
 
 using namespace std;
 
@@ -52,6 +55,8 @@ void GameDriver::setPlayers(int num) {
 
 	cout << "\n" << endl;
 
+	gameStats = new PlayerStats();
+
 	for (int i = 0; i < num - numAI ; i++){
 		
 		
@@ -67,6 +72,8 @@ void GameDriver::setPlayers(int num) {
 		playerViews.push_back(pview);
 		cout << endl;
 
+		gameStats->addPlayer(player);
+
 		//testing puposes
 		/*player->theHand.addCard(deck.dealCard());
 		player->theHand.addCard(deck.dealCard());
@@ -75,6 +82,9 @@ void GameDriver::setPlayers(int num) {
 		player->theHand.addCard(deck.dealCard());*/
 		
 	}
+
+	gameStats = new WorldStats(gameStats);
+	gameStats = new BattleStats(gameStats);
 	
 
 	//Set Names and Start types for Ai players

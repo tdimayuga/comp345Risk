@@ -20,6 +20,7 @@ private:
 	std::vector<Territory> territories;
 	int armies;
 	int continents;
+	int battlesWon;
 	std::string playerName;
 	
 
@@ -36,6 +37,7 @@ public:
 	Territory getTerritory(std::string);
 	int getArmies();
 	int getContinents();
+	int getBattlesWon();
 	std::string getName();
 
 	void removeTerritory(std::string);
@@ -45,6 +47,7 @@ public:
 	void addArmies(int);
 	void removeArmies(int);
 	void addContinents(int);
+	void addBattlesWon(int);
 
 	bool attackTerritory(Territory territory, int armies);
 	bool ownsTerritory(std::string countryName);

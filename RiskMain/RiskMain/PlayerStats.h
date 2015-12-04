@@ -8,10 +8,12 @@
 #ifndef PLAYERSTATS_H_
 #define PLAYERSTATS_H_
 
-#include "GameStatsDecorator.h"
+#include "GameStats.h"
 
-class PlayerStats : public GameStatsDecorator {
+
+class PlayerStats : public GameStats {
 public:
+	PlayerStats() {}
 	PlayerStats(Player *player);
 	PlayerStats(GameStats *gameStats);
 	~PlayerStats();

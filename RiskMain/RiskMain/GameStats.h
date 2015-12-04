@@ -2,7 +2,7 @@
  * GameStats.h
  *
  *  Created on: Nov 25, 2015
- *      Author: Sean-Frankel Gaon Canlas
+ *      Author: Sean
  */
 
 #ifndef GAMESTATS_H_
@@ -12,13 +12,20 @@
 #include "player.h"
 
 class GameStats : public Observer {
+
+protected:
+	std::vector<Player*> players;
 public:
 	GameStats();
+	GameStats(Player *player);
 	~GameStats();
-	virtual void addPlayer(Player *player) = 0;
-	virtual void Update();
+	void addPlayer(Player *player);
+	void Update();
 	virtual void display() = 0;
-	virtual std::vector<Player*> getPlayers() = 0;
+	virtual std::vector<Player*> getPlayers() {
+		return players;
+	}
 };
+
 
 #endif /* GAMESTATS_H_ */

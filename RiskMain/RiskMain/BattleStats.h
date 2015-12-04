@@ -1,9 +1,9 @@
 /*
-* BattleStats.h
-*
-*  Created on: Nov 26, 2015
-*      Author: Sean
-*/
+ * BattleStats.h
+ *
+ *  Created on: Nov 26, 2015
+ *      Author: Sean
+ */
 
 #ifndef BATTLESTATS_H_
 #define BATTLESTATS_H_
@@ -15,7 +15,7 @@ private:
 	std::vector<Player*> players;
 public:
 	BattleStats(GameStats *gameStats) : GameStatsDecorator(gameStats) {
-		for (Player *player : gameStats->getPlayers()) {
+		for(Player *player : gameStats->getPlayers()) {
 			player->Detach(gameStats);
 			player->Attach(this);
 		}
@@ -28,5 +28,6 @@ public:
 		return players;
 	}
 };
+
 
 #endif /* BATTLESTATS_H_ */

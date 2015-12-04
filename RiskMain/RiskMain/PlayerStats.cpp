@@ -38,7 +38,7 @@
 
 				cout << "Report for: " << player->getName() << endl;
 				cout << "Armies: " << player->getArmies() << endl;
-				cout << "Countries: " << player->getTerritory().size() << endl;
+				cout << "Countries: " << player->getTerritories().size() << endl;
 				cout << "Cards: " << endl;
 			}
 	}
